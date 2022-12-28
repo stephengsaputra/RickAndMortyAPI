@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009D295C914000129B2D /* AppDelegate.swift */; };
 		DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009F295C914000129B2D /* SceneDelegate.swift */; };
-		DB6C00A2295C914000129B2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* ViewController.swift */; };
+		DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* TabViewController.swift */; };
 		DB6C00A7295C914100129B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6C00A6295C914100129B2D /* Assets.xcassets */; };
 		DB6C00AA295C914100129B2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6C00A8295C914100129B2D /* LaunchScreen.storyboard */; };
+		DB6C00B9295C93BF00129B2D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00B8295C93BF00129B2D /* Location.swift */; };
+		DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BA295C93CC00129B2D /* Episode.swift */; };
+		DB6C00BE295C93D600129B2D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BD295C93D600129B2D /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB6C009A295C914000129B2D /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6C009D295C914000129B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6C009F295C914000129B2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB6C00A1295C914000129B2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB6C00A1295C914000129B2D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		DB6C00A6295C914100129B2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6C00A9295C914100129B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6C00AB295C914100129B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB6C00B8295C93BF00129B2D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DB6C00BA295C93CC00129B2D /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		DB6C00BD295C93D600129B2D /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,73 @@
 		DB6C009C295C914000129B2D /* RickAndMortyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				DB6C009D295C914000129B2D /* AppDelegate.swift */,
-				DB6C009F295C914000129B2D /* SceneDelegate.swift */,
-				DB6C00A1295C914000129B2D /* ViewController.swift */,
-				DB6C00A6295C914100129B2D /* Assets.xcassets */,
-				DB6C00A8295C914100129B2D /* LaunchScreen.storyboard */,
+				DB6C00B4295C934E00129B2D /* Models */,
+				DB6C00B3295C934800129B2D /* Views */,
+				DB6C00B2295C934000129B2D /* Vendors */,
 				DB6C00AB295C914100129B2D /* Info.plist */,
 			);
 			path = RickAndMortyAPI;
+			sourceTree = "<group>";
+		};
+		DB6C00B2295C934000129B2D /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C00B7295C939200129B2D /* API Clients */,
+				DB6C00B6295C938700129B2D /* Managers */,
+				DB6C00B5295C935500129B2D /* Resources */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		DB6C00B3295C934800129B2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C00BF295C93F900129B2D /* Tab Bar Controller */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB6C00B4295C934E00129B2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C00B8295C93BF00129B2D /* Location.swift */,
+				DB6C00BA295C93CC00129B2D /* Episode.swift */,
+				DB6C00BD295C93D600129B2D /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB6C00B5295C935500129B2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C009D295C914000129B2D /* AppDelegate.swift */,
+				DB6C009F295C914000129B2D /* SceneDelegate.swift */,
+				DB6C00A6295C914100129B2D /* Assets.xcassets */,
+				DB6C00A8295C914100129B2D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB6C00B6295C938700129B2D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DB6C00B7295C939200129B2D /* API Clients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "API Clients";
+			sourceTree = "<group>";
+		};
+		DB6C00BF295C93F900129B2D /* Tab Bar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C00A1295C914000129B2D /* TabViewController.swift */,
+			);
+			path = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6C00A2295C914000129B2D /* ViewController.swift in Sources */,
+				DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */,
 				DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */,
+				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
+				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
+				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
