@@ -19,8 +19,12 @@ final class APIService {
     /// Send API call
     /// - Parameters:
     ///   - request: Request instance
+    ///   - type: The type of object we expect to get back
     ///   - completion: Callback with data or error
-    private func execute(_ request: APIRequest, completion: @escaping () -> Void) {
+    func execute<S: Codable>(
+        _ request: APIRequest,
+        expecting type: S.Type,
+        completion: @escaping (Result<S, Error>) -> Void) {
         
         
     }
