@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to show app options and settings
 final class SettingsVC: UIViewController {
 
     // MARK: - Properties
@@ -26,6 +27,6 @@ final class SettingsVC: UIViewController {
     func configureUI() {
         
         self.title = "Settings"
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground 
     }
 }
