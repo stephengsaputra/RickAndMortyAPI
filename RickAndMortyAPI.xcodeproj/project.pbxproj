@@ -22,7 +22,6 @@
 		DBFB046B295C992500E9175C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046A295C992500E9175C /* APIService.swift */; };
 		DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046C295C994F00E9175C /* APIRequest.swift */; };
 		DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046E295C99C900E9175C /* APIEndpoint.swift */; };
-		DBFB0471295C9DBA00E9175C /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB0470295C9DBA00E9175C /* Origin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		DBFB046A295C992500E9175C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DBFB046C295C994F00E9175C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DBFB046E295C99C900E9175C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
-		DBFB0470295C9DBA00E9175C /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +106,6 @@
 				DB6C00BD295C93D600129B2D /* Character.swift */,
 				DB6C00B8295C93BF00129B2D /* Location.swift */,
 				DB6C00BA295C93CC00129B2D /* Episode.swift */,
-				DBFB0470295C9DBA00E9175C /* Origin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,7 +235,6 @@
 				DBFB046B295C992500E9175C /* APIService.swift in Sources */,
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
-				DBFB0471295C9DBA00E9175C /* Origin.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
 				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
