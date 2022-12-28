@@ -25,6 +25,7 @@ final class CharacterListVC: UIViewController {
     // MARK: - Helpers
     func configureUI() {
         
-        view.backgroundColor = .systemYellow
+        self.title = "Characters"
+        view.backgroundColor = .systemBackground
     }
 }
