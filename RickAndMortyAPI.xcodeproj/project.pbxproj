@@ -15,6 +15,10 @@
 		DB6C00B9295C93BF00129B2D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00B8295C93BF00129B2D /* Location.swift */; };
 		DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BA295C93CC00129B2D /* Episode.swift */; };
 		DB6C00BE295C93D600129B2D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BD295C93D600129B2D /* Character.swift */; };
+		DBF20AA5295C94E300B3C83C /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */; };
+		DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA6295C94F800B3C83C /* LocationListVC.swift */; };
+		DBF20AA9295C94FF00B3C83C /* EpisodeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */; };
+		DBF20AAB295C950E00B3C83C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AAA295C950E00B3C83C /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		DB6C00B8295C93BF00129B2D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DB6C00BA295C93CC00129B2D /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		DB6C00BD295C93D600129B2D /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
+		DBF20AA6295C94F800B3C83C /* LocationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVC.swift; sourceTree = "<group>"; };
+		DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListVC.swift; sourceTree = "<group>"; };
+		DBF20AAA295C950E00B3C83C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +133,20 @@
 			isa = PBXGroup;
 			children = (
 				DB6C00A1295C914000129B2D /* TabViewController.swift */,
+				DBF20AA3295C94C100B3C83C /* Tab Views */,
 			);
 			path = "Tab Bar Controller";
+			sourceTree = "<group>";
+		};
+		DBF20AA3295C94C100B3C83C /* Tab Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */,
+				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
+				DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */,
+				DBF20AAA295C950E00B3C83C /* SettingsVC.swift */,
+			);
+			path = "Tab Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,12 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF20AA9295C94FF00B3C83C /* EpisodeListVC.swift in Sources */,
+				DBF20AA5295C94E300B3C83C /* CharacterListVC.swift in Sources */,
 				DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */,
 				DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
+				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
+				DBF20AAB295C950E00B3C83C /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
