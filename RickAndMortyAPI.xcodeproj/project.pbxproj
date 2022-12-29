@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DB440121295D402100319DF2 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440120295D402100319DF2 /* APIServiceError.swift */; };
 		DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440124295D43A400319DF2 /* CharactersResponse.swift */; };
+		DB440128295D4A9100319DF2 /* CharacterListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440127295D4A9100319DF2 /* CharacterListVM.swift */; };
+		DB44012D295D4B2500319DF2 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44012C295D4B2500319DF2 /* CharacterListView.swift */; };
+		DB440130295DE13D00319DF2 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */; };
 		DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009D295C914000129B2D /* AppDelegate.swift */; };
 		DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009F295C914000129B2D /* SceneDelegate.swift */; };
 		DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* TabViewController.swift */; };
@@ -29,6 +32,9 @@
 /* Begin PBXFileReference section */
 		DB440120295D402100319DF2 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		DB440124295D43A400319DF2 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
+		DB440127295D4A9100319DF2 /* CharacterListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVM.swift; sourceTree = "<group>"; };
+		DB44012C295D4B2500319DF2 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DB6C009A295C914000129B2D /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6C009D295C914000129B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6C009F295C914000129B2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,48 @@
 			path = "API Response Types";
 			sourceTree = "<group>";
 		};
+		DB440126295D4A8400319DF2 /* Character List */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */,
+				DB440127295D4A9100319DF2 /* CharacterListVM.swift */,
+				DB44012C295D4B2500319DF2 /* CharacterListView.swift */,
+			);
+			path = "Character List";
+			sourceTree = "<group>";
+		};
+		DB440129295D4A9900319DF2 /* Location List */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
+			);
+			path = "Location List";
+			sourceTree = "<group>";
+		};
+		DB44012A295D4AA200319DF2 /* Episode List */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */,
+			);
+			path = "Episode List";
+			sourceTree = "<group>";
+		};
+		DB44012B295D4AA900319DF2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AAA295C950E00B3C83C /* SettingsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DB44012E295DE12400319DF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DB6C0091295C914000129B2D = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +155,7 @@
 		DB6C00B2295C934000129B2D /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				DB44012E295DE12400319DF2 /* Extensions */,
 				DB6C00B7295C939200129B2D /* API Clients */,
 				DB6C00B6295C938700129B2D /* Managers */,
 				DB6C00B5295C935500129B2D /* Resources */,
@@ -172,10 +221,10 @@
 		DBF20AA3295C94C100B3C83C /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
-				DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */,
-				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
-				DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */,
-				DBF20AAA295C950E00B3C83C /* SettingsVC.swift */,
+				DB440126295D4A8400319DF2 /* Character List */,
+				DB440129295D4A9900319DF2 /* Location List */,
+				DB44012A295D4AA200319DF2 /* Episode List */,
+				DB44012B295D4AA900319DF2 /* Settings */,
 			);
 			path = "Tab Views";
 			sourceTree = "<group>";
@@ -262,8 +311,11 @@
 				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
 				DB440121295D402100319DF2 /* APIServiceError.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
+				DB44012D295D4B2500319DF2 /* CharacterListView.swift in Sources */,
+				DB440128295D4A9100319DF2 /* CharacterListVM.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,
+				DB440130295DE13D00319DF2 /* UIViewExtensions.swift in Sources */,
 				DBF20AAB295C950E00B3C83C /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

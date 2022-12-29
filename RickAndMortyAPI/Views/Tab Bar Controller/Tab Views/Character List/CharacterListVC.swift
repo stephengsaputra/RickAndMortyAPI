@@ -11,23 +11,13 @@ import UIKit
 final class CharacterListVC: UIViewController {
 
     // MARK: - Properties
-    
+    private let characterListView = CharacterListView()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureUI()
-        
-        APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { result in
-            switch result {
-                case .success(let model):
-                    print("Total: \(model.info?.count)")
-                    print("Page results count: \(model.results?.count)")
-                case .failure(let error):
-                    print(error)
-            }
-        }
     }
     
     // MARK: - Selectors
@@ -38,5 +28,13 @@ final class CharacterListVC: UIViewController {
         
         self.title = "Characters"
         view.backgroundColor = .systemBackground
+        
+        view.addSubview(characterListView)
+        NSLayoutConstraint.activate([
+            characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            characterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            characterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
     }
 }
