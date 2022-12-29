@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB440121295D402100319DF2 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440120295D402100319DF2 /* APIServiceError.swift */; };
+		DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440124295D43A400319DF2 /* CharactersResponse.swift */; };
 		DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009D295C914000129B2D /* AppDelegate.swift */; };
 		DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009F295C914000129B2D /* SceneDelegate.swift */; };
 		DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* TabViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB440120295D402100319DF2 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		DB440124295D43A400319DF2 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		DB6C009A295C914000129B2D /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6C009D295C914000129B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6C009F295C914000129B2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB440122295D437E00319DF2 /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				DB6C00BD295C93D600129B2D /* Character.swift */,
+				DB6C00B8295C93BF00129B2D /* Location.swift */,
+				DB6C00BA295C93CC00129B2D /* Episode.swift */,
+			);
+			path = "Data Types";
+			sourceTree = "<group>";
+		};
+		DB440123295D438A00319DF2 /* API Response Types */ = {
+			isa = PBXGroup;
+			children = (
+				DB440124295D43A400319DF2 /* CharactersResponse.swift */,
+			);
+			path = "API Response Types";
+			sourceTree = "<group>";
+		};
 		DB6C0091295C914000129B2D = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +125,8 @@
 		DB6C00B4295C934E00129B2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DB6C00BD295C93D600129B2D /* Character.swift */,
-				DB6C00B8295C93BF00129B2D /* Location.swift */,
-				DB6C00BA295C93CC00129B2D /* Episode.swift */,
+				DB440123295D438A00319DF2 /* API Response Types */,
+				DB440122295D437E00319DF2 /* Data Types */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +155,7 @@
 				DBFB046A295C992500E9175C /* APIService.swift */,
 				DBFB046C295C994F00E9175C /* APIRequest.swift */,
 				DBFB046E295C99C900E9175C /* APIEndpoint.swift */,
+				DB440120295D402100319DF2 /* APIServiceError.swift */,
 			);
 			path = "API Clients";
 			sourceTree = "<group>";
@@ -236,7 +258,9 @@
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
+				DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */,
 				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
+				DB440121295D402100319DF2 /* APIServiceError.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,

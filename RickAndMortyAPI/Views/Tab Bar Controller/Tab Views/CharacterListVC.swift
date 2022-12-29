@@ -18,6 +18,16 @@ final class CharacterListVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        
+        APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { result in
+            switch result {
+                case .success(let model):
+                    print("Total: \(model.info?.count)")
+                    print("Page results count: \(model.results?.count)")
+                case .failure(let error):
+                    print(error)
+            }
+        }
     }
     
     // MARK: - Selectors

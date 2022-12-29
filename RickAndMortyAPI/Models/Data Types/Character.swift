@@ -53,12 +53,12 @@ struct SingleLocation: Codable {
 enum Status: String, Codable {
     case alive = "Alive"
     case dead = "Dead"
-    case unknown = "Unknown"
+    case unknown = "unknown"
 }
 
 enum Gender: String, Codable {
     case male = "Male"
     case female = "Female"
     case genderless = "Genderless"
-    case unknown = "Unknown"
+    case unknown = "unknown"
 }
