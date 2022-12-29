@@ -15,8 +15,8 @@ final class CharacterListVM: NSObject {
         APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { result in
             switch result {
                 case .success(let model):
-                    print("Total: \(model.info?.count)")
-                    print("Page results count: \(model.results?.count)")
+                    print("\(String(describing: model))")
+                    print("Image URL: \(model.results?.first?.image ?? "No Image!")")
                 case .failure(let error):
                     print(error)
             }
@@ -25,25 +25,28 @@ final class CharacterListVM: NSObject {
 }
 
 extension CharacterListVM: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 20
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemBlue
-        
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+
+        let vm = CharacterCollectionViewCellVM(characterName: "Stephen Giovanni Saputra", characterStatus: .alive, characterImageURL: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+        cell.configure(with: vm)
+
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 45) / 2
-        
+
         return CGSize(width: width, height: width * 1.5)
     }
 }

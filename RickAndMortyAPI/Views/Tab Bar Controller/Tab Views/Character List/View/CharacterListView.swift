@@ -22,7 +22,7 @@ final class CharacterListView: UIView {
     internal lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
         return layout
     }()
     
@@ -31,9 +31,9 @@ final class CharacterListView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isHidden = true
         collectionView.alpha = 0
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.delegate = viewModel
-        collectionView.dataSource = viewModel
+        collectionView.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -84,5 +84,38 @@ final class CharacterListView: UIView {
                 self.collectionView.alpha = 1
             }
         }
+    }
+}
+
+// Jaga" sapa tau bisa dipindah ke sini...
+extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+
+        let vm = CharacterCollectionViewCellVM(characterName: "Stephen Giovanni Saputra", characterStatus: .alive, characterImageURL: URL(string: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"))
+        cell.configure(with: vm)
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let bounds = UIScreen.main.bounds
+        let width = (bounds.width - 45) / 2
+
+        return CGSize(width: width, height: width * 1.5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(indexPath.row)
     }
 }
