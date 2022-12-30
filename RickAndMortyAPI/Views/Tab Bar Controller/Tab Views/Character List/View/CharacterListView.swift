@@ -47,8 +47,9 @@ final class CharacterListView: UIView {
         
         configureUI()
         spinner.startAnimating()
+        
         viewModel.fetchCharacters()
-        setupCollectionView()
+        viewModel.delegate = self
     }
      
     required init?(coder: NSCoder) {
@@ -75,26 +76,12 @@ final class CharacterListView: UIView {
             collectionView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
     }
-    
-    private func setupCollectionView() {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
-            self.spinner.stopAnimating()
-            
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        }
-    }
 }
 
-// Jaga" sapa tau bisa dipindah ke sini...
 extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return self.viewModel.characters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,7 +93,7 @@ extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSourc
         let vm = CharacterCollectionViewCellVM(
             characterName: self.viewModel.characters[indexPath.row].name ?? "",
             characterStatus: self.viewModel.characters[indexPath.row].status ?? .unknown,
-            characterImageURL: URL(string: self.viewModel.characters[indexPath.row].image ?? "https://rickandmortyapi.com/api/character/avatar/2.jpeg")
+            characterImageURL: URL(string: self.viewModel.characters[indexPath.row].image ?? "")
         )
         cell.configure(with: vm)
 
@@ -124,5 +111,19 @@ extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print(String(describing: self.viewModel.characters[indexPath.row].image ?? ""))
+    }
+}
+
+extension CharacterListView: CharacterListVMDelegate {
+    
+    func didLoadInitialCharacters() {
+        
+        spinner.stopAnimating()
+        collectionView.reloadData()
+        
+        collectionView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
     }
 }

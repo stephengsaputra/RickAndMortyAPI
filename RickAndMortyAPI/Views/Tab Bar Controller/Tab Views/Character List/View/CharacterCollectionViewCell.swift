@@ -112,7 +112,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     // MARK: - Helpers
     func configureUI() {
         
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .secondarySystemBackground
         
         contentView.addSubviews(imageView, nameLabel, secondaryLabel)
         NSLayoutConstraint.activate([
@@ -132,11 +132,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         ])
         
         contentView.clipsToBounds = true
-        
         contentView.layer.cornerRadius = 12
-        
-        contentView.layer.borderColor = UIColor.systemGray3.withAlphaComponent(0.3).cgColor
-        contentView.layer.borderWidth = 1.5
     }
     
     private func updateColors() {
