@@ -9,14 +9,17 @@ import Foundation
 import UIKit
 
 final class CharacterListVM: NSObject {
+    
+    var characters: [Character] = []
+    var onFetchSucceed: (() -> Void)?
 
     func fetchCharacters() {
         
-        APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { result in
+        APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { [weak self] result in
             switch result {
                 case .success(let model):
-                    print("\(String(describing: model))")
-                    print("Image URL: \(model.results?.first?.image ?? "No Image!")")
+                    self?.characters.append(contentsOf: model.results ?? [])
+                    self?.onFetchSucceed?()
                 case .failure(let error):
                     print(error)
             }

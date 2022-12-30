@@ -22,7 +22,7 @@ final class CharacterListView: UIView {
     internal lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         return layout
     }()
     
@@ -54,6 +54,9 @@ final class CharacterListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Selectors
+    
     
     // MARK: - Helpers
     private func configureUI() {
@@ -100,7 +103,11 @@ extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSourc
             fatalError("Unsupported cell")
         }
 
-        let vm = CharacterCollectionViewCellVM(characterName: "Stephen Giovanni Saputra", characterStatus: .alive, characterImageURL: URL(string: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"))
+        let vm = CharacterCollectionViewCellVM(
+            characterName: self.viewModel.characters[indexPath.row].name ?? "",
+            characterStatus: self.viewModel.characters[indexPath.row].status ?? .unknown,
+            characterImageURL: URL(string: self.viewModel.characters[indexPath.row].image ?? "https://rickandmortyapi.com/api/character/avatar/2.jpeg")
+        )
         cell.configure(with: vm)
 
         return cell
@@ -116,6 +123,6 @@ extension CharacterListView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print(indexPath.row)
+        print(String(describing: self.viewModel.characters[indexPath.row].image ?? ""))
     }
 }
