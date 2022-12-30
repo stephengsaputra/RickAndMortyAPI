@@ -14,6 +14,19 @@ final class TabViewController: UITabBarController {
         
         super.viewDidLoad()
         setupTabs()
+        configureTabBarController()
+    }
+    
+    private func configureTabBarController() {
+        
+        if #available(iOS 13.0, *) {
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithTransparentBackground()
+            tabBarAppearance.backgroundColor = .systemBackground
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            UITabBar.appearance().selectedImageTintColor = .systemPink
+        }
     }
     
     private func setupTabs() {
@@ -23,10 +36,9 @@ final class TabViewController: UITabBarController {
         let episodeListVC = EpisodeListVC()
         let settingsVC = SettingsVC()
         
-        characterListVC.navigationItem.largeTitleDisplayMode = .automatic
-        locationListVC.navigationItem.largeTitleDisplayMode = .automatic
-        episodeListVC.navigationItem.largeTitleDisplayMode = .automatic
-        settingsVC.navigationItem.largeTitleDisplayMode = .automatic
+        for vc in [characterListVC, locationListVC, episodeListVC, settingsVC] {
+            vc.navigationItem.largeTitleDisplayMode = .automatic
+        }
         
         let nav1 = UINavigationController(rootViewController: characterListVC)
         nav1.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "person"), tag: 1)
@@ -39,7 +51,6 @@ final class TabViewController: UITabBarController {
         
         let nav4 = UINavigationController(rootViewController: settingsVC)
         nav4.tabBarItem = UITabBarItem(title: "Character", image: UIImage(systemName: "gear"), tag: 4)
-        
         
         let navigationVC = [nav1, nav2, nav3, nav4]
         
