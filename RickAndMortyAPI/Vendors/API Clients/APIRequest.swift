@@ -76,5 +76,9 @@ final class APIRequest {
 
 extension APIRequest {
     
-    static let listCharactersRequests = APIRequest(endpoint: .character)
+    static let listCharactersRequests = APIRequest(
+        endpoint: .character,
+        queryParameters: [
+            URLQueryItem(name: "page", value: "1")
+        ])
 }
