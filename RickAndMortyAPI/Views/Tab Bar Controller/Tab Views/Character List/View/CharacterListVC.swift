@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol CharacterListVCDelegate: AnyObject {
+    
+    func didLoadInitialCharacters()
+}
+
 /// Controller to show and search for Character
 final class CharacterListVC: UIViewController {
 

@@ -40,11 +40,23 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print(String(describing: self.viewModel.characters[indexPath.row].image ?? ""))
+        let character = viewModel.characters[indexPath.row]
+        let vm = CharacterDetailVM(character: character)
+        
+        let vc = CharacterDetailVC(viewModel: vm)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension CharacterListVC: CharacterListVMDelegate {
+extension CharacterListVC: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard viewModel.shouldShowLoadMoreIndicator else { return }
+    }
+}
+
+extension CharacterListVC: CharacterListVCDelegate {
     
     func didLoadInitialCharacters() {
         
