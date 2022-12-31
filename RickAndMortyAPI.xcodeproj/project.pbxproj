@@ -10,7 +10,6 @@
 		DB440121295D402100319DF2 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440120295D402100319DF2 /* APIServiceError.swift */; };
 		DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440124295D43A400319DF2 /* CharactersResponse.swift */; };
 		DB440128295D4A9100319DF2 /* CharacterListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440127295D4A9100319DF2 /* CharacterListVM.swift */; };
-		DB44012D295D4B2500319DF2 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44012C295D4B2500319DF2 /* CharacterListView.swift */; };
 		DB440130295DE13D00319DF2 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */; };
 		DB440132295DE86600319DF2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */; };
 		DB440134295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */; };
@@ -35,7 +34,6 @@
 		DB440120295D402100319DF2 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		DB440124295D43A400319DF2 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		DB440127295D4A9100319DF2 /* CharacterListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVM.swift; sourceTree = "<group>"; };
-		DB44012C295D4B2500319DF2 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCellVM.swift; sourceTree = "<group>"; };
@@ -90,8 +88,8 @@
 		DB440126295D4A8400319DF2 /* Character List */ = {
 			isa = PBXGroup;
 			children = (
-				DB440136295DE9A400319DF2 /* View */,
 				DB440135295DE99900319DF2 /* View Model */,
+				DB440136295DE9A400319DF2 /* View */,
 			);
 			path = "Character List";
 			sourceTree = "<group>";
@@ -141,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */,
-				DB44012C295D4B2500319DF2 /* CharacterListView.swift */,
 				DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */,
 			);
 			path = View;
@@ -334,7 +331,6 @@
 				DB440121295D402100319DF2 /* APIServiceError.swift in Sources */,
 				DB440132295DE86600319DF2 /* CharacterCollectionViewCell.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
-				DB44012D295D4B2500319DF2 /* CharacterListView.swift in Sources */,
 				DB440128295D4A9100319DF2 /* CharacterListVM.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,
