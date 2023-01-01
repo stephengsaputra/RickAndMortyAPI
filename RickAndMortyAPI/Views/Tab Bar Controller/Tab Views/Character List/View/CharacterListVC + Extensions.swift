@@ -65,19 +65,14 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
         }
         return CGSize(width: collectionView.frame.width, height: 100)
     }
-}
-
-extension CharacterListVC: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         guard viewModel.shouldShowLoadMoreIndicator, !viewModel.isLoadingMoreCharacters else { return }
         
-        let offset = scrollView.contentOffset.y
-        let totalContentHeight = scrollView.contentSize.height
-        let totalScrollViewFixedHeight = scrollView.frame.size.height
+        let lastElement = viewModel.characters.count - 1
         
-        if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
+        if indexPath.row == lastElement {
             viewModel.fetchMoreCharacters()
         }
     }

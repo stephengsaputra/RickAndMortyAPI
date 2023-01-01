@@ -42,6 +42,7 @@ final class CharacterListVM {
     func fetchMoreCharacters() {
         
         isLoadingMoreCharacters = true
+        print("FETCH")
     }
     
     public var shouldShowLoadMoreIndicator: Bool {
