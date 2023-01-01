@@ -37,6 +37,7 @@ final class CharacterListVC: UIViewController {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
+        collectionView.register(LoadingFooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingFooterCollectionReusableView.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView

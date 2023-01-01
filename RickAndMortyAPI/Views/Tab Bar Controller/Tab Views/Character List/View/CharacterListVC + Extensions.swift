@@ -46,13 +46,40 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
         let vc = CharacterDetailVC(viewModel: vm)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard kind == UICollectionView.elementKindSectionFooter,
+              let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingFooterCollectionReusableView.identifier, for: indexPath) as? LoadingFooterCollectionReusableView else {
+            fatalError("Unsupported")
+        }
+        footer.startSpinnerAnimation()
+        
+        return footer
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        guard viewModel.shouldShowLoadMoreIndicator else {
+            return .zero
+        }
+        return CGSize(width: collectionView.frame.width, height: 100)
+    }
 }
 
 extension CharacterListVC: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        guard viewModel.shouldShowLoadMoreIndicator else { return }
+        guard viewModel.shouldShowLoadMoreIndicator, !viewModel.isLoadingMoreCharacters else { return }
+        
+        let offset = scrollView.contentOffset.y
+        let totalContentHeight = scrollView.contentSize.height
+        let totalScrollViewFixedHeight = scrollView.frame.size.height
+        
+        if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120) {
+            viewModel.fetchMoreCharacters()
+        }
     }
 }
 

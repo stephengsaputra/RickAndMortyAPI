@@ -16,6 +16,8 @@ final class CharacterListVM {
     var characters: [Character] = []
     private var apiInfo: Info? = nil
     
+    var isLoadingMoreCharacters = false
+    
     /// Fetch initial set of characters
     func fetchCharacters() {
         
@@ -39,7 +41,7 @@ final class CharacterListVM {
     /// Paginate if additional characters are needed
     func fetchMoreCharacters() {
         
-        
+        isLoadingMoreCharacters = true
     }
     
     public var shouldShowLoadMoreIndicator: Bool {

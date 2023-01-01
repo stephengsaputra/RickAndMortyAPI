@@ -25,7 +25,7 @@ final class TabViewController: UITabBarController {
             tabBarAppearance.configureWithTransparentBackground()
             tabBarAppearance.backgroundColor = .systemBackground
             UITabBar.appearance().standardAppearance = tabBarAppearance
-            UITabBar.appearance().tintColor = .systemPink
+            UITabBar.appearance().tintColor = .systemBlue
         }
     }
     

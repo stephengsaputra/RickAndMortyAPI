@@ -13,6 +13,7 @@
 		DB440130295DE13D00319DF2 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */; };
 		DB440132295DE86600319DF2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */; };
 		DB440134295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */; };
+		DB4DBD792961BD71005077BC /* LoadingFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4DBD782961BD71005077BC /* LoadingFooterCollectionReusableView.swift */; };
 		DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009D295C914000129B2D /* AppDelegate.swift */; };
 		DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009F295C914000129B2D /* SceneDelegate.swift */; };
 		DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* TabViewController.swift */; };
@@ -40,6 +41,7 @@
 		DB44012F295DE13D00319DF2 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCellVM.swift; sourceTree = "<group>"; };
+		DB4DBD782961BD71005077BC /* LoadingFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		DB6C009A295C914000129B2D /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6C009D295C914000129B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6C009F295C914000129B2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DB4DBD772961BD4D005077BC /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB4DBD782961BD71005077BC /* LoadingFooterCollectionReusableView.swift */,
+			);
+			path = "Reusable Views";
+			sourceTree = "<group>";
+		};
 		DB6C0091295C914000129B2D = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 			children = (
 				DB6C00BF295C93F900129B2D /* Tab Bar Controller */,
 				DB7A7AA3296075B2004CD2FB /* Character Detail View */,
+				DB4DBD772961BD4D005077BC /* Reusable Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +369,7 @@
 				DBFB046B295C992500E9175C /* APIService.swift in Sources */,
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
+				DB4DBD792961BD71005077BC /* LoadingFooterCollectionReusableView.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
 				DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */,
 				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
