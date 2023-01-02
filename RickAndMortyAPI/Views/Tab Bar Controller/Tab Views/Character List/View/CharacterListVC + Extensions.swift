@@ -53,7 +53,6 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
               let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingFooterCollectionReusableView.identifier, for: indexPath) as? LoadingFooterCollectionReusableView else {
             fatalError("Unsupported")
         }
-        footer.startSpinnerAnimation()
         
         return footer
     }
@@ -68,12 +67,16 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        guard viewModel.shouldShowLoadMoreIndicator, !viewModel.isLoadingMoreCharacters else { return }
+        guard viewModel.shouldShowLoadMoreIndicator, !viewModel.isLoadingMoreCharacters, let nextURLString = viewModel.apiInfo?.next, let url = URL(string: nextURLString) else { return }
         
         let lastElement = viewModel.characters.count - 1
         
         if indexPath.row == lastElement {
-            viewModel.fetchMoreCharacters()
+            
+            viewModel.fetchMoreCharacters(url: url)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.collectionView.reloadData()
+            }
         }
     }
 }

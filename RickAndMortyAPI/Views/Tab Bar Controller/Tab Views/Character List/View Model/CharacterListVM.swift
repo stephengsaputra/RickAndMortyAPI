@@ -14,7 +14,7 @@ final class CharacterListVM {
     public weak var delegate: CharacterListVCDelegate?
     
     var characters: [Character] = []
-    private var apiInfo: Info? = nil
+    var apiInfo: Info? = nil
     
     var isLoadingMoreCharacters = false
     
@@ -39,10 +39,33 @@ final class CharacterListVM {
     }
     
     /// Paginate if additional characters are needed
-    func fetchMoreCharacters() {
+    func fetchMoreCharacters(url: URL) {
+        
+        guard !isLoadingMoreCharacters else {
+            return
+        }
         
         isLoadingMoreCharacters = true
-        print("FETCH")
+        
+        guard let request = APIRequest(url: url) else {
+            
+            isLoadingMoreCharacters = false
+            print("DEBUG: Failed to create request")
+            return
+        }
+        
+        APIService.shared.execute(request, expecting: CharactersResponse.self) { [weak self] result in
+            
+            switch result {
+                case .success(let model):
+                    self?.characters.append(contentsOf: model.results ?? [])
+                    self?.apiInfo = model.info
+                    self?.isLoadingMoreCharacters = false
+                case .failure(let failure):
+                    print(String(describing: failure))
+                    self?.isLoadingMoreCharacters = false
+            }
+        }
     }
     
     public var shouldShowLoadMoreIndicator: Bool {

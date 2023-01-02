@@ -41,10 +41,7 @@ final class LoadingFooterCollectionReusableView: UICollectionReusableView {
             spinner.widthAnchor.constraint(equalToConstant: 100),
             spinner.heightAnchor.constraint(equalToConstant: 100)
         ])
-    }
-    
-    func startSpinnerAnimation() {
         
-        spinner.startAnimating()    
+        spinner.startAnimating()
     }
 }

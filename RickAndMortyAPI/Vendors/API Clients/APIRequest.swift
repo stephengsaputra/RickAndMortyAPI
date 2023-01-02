@@ -72,6 +72,49 @@ final class APIRequest {
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
+    
+    convenience init?(url: URL) {
+        
+        let string = url.absoluteString
+        if !string.contains(Constants.BASE_URL) {
+            return nil
+        }
+        
+        let trimmed = string.replacingOccurrences(of: Constants.BASE_URL + "/", with: "")
+        
+        if trimmed.contains("/") {
+            let components = trimmed.components(separatedBy: "/")
+            if !components.isEmpty {
+                let endpointString = components[0]
+                if let apiEndpoint = APIEndpoint(rawValue: endpointString) {
+                    self.init(endpoint: apiEndpoint)
+                    return
+                }
+            }
+        } else if trimmed.contains("?") {
+            let components = trimmed.components(separatedBy: "?")
+            if !components.isEmpty, components.count >= 2 {
+                let endpointString = components[0]
+                let queryItemsString = components[1]
+                let queryItems: [URLQueryItem] = queryItemsString.components(separatedBy: "&").compactMap { string in
+                    
+                    guard string.contains("=") else {
+                        return nil
+                    }
+                    
+                    let parts = string.components(separatedBy: "=")
+                    
+                    return URLQueryItem(name: parts[0], value: parts[1])
+                }
+                if let apiEndpoint = APIEndpoint(rawValue: endpointString) {
+                    self.init(endpoint: apiEndpoint, queryParameters: queryItems)
+                    return
+                }
+            }
+        }
+        
+        return nil
+    }
 }
 
 extension APIRequest {
