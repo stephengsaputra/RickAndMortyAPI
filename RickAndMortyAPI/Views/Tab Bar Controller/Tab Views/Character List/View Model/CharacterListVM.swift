@@ -21,7 +21,7 @@ final class CharacterListVM {
     /// Fetch initial set of characters
     func fetchCharacters() {
         
-        APIService.shared.execute(.listCharactersRequests, expecting: CharactersResponse.self) { [weak self] result in
+        APIService.shared.execute(.getCharacterListRequest, expecting: CharactersResponse.self) { [weak self] result in
             switch result {
                 case .success(let model):
                 

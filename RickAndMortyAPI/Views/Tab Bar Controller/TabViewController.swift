@@ -14,19 +14,6 @@ final class TabViewController: UITabBarController {
         
         super.viewDidLoad()
         setupTabs()
-        configureTabBarController()
-    }
-    
-    private func configureTabBarController() {
-        
-        if #available(iOS 13.0, *) {
-            
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithTransparentBackground()
-            tabBarAppearance.backgroundColor = .systemBackground
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-            UITabBar.appearance().tintColor = .systemBlue
-        }
     }
     
     private func setupTabs() {

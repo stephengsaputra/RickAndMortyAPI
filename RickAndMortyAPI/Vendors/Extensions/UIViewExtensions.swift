@@ -10,6 +10,8 @@ import UIKit
 
 extension UIView {
     
+    /// Adds all UI elements to a UIView
+    /// - Parameter views: UI elements to be added
     func addSubviews(_ views: UIView...) {
         
         views.forEach { view in

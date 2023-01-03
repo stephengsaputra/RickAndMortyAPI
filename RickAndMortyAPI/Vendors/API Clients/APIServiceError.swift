@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Represents the errors that could happen when fetching
 enum APIServiceError: Error {
     case failedToCreateRequest
     case failedToGetData
