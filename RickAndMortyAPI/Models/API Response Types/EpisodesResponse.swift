@@ -1,16 +1,16 @@
 //
-//  CharactersResponse.swift
+//  EpisodesResposne.swift
 //  RickAndMortyAPI
 //
-//  Created by Stephen Giovanni Saputra on 29/12/22.
+//  Created by Stephen Giovanni Saputra on 03/01/23.
 //
 
 import Foundation
 
-struct CharactersResponse: Codable {
+struct EpisodesResponse: Codable {
     
     let info: Info?
-    let results: [Character]?
+    let results: [Episode]?
     
     enum CodingKeys: String, CodingKey {
         case info = "info"
