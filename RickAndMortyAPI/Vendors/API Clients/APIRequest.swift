@@ -135,6 +135,9 @@ extension APIRequest {
     /// API Request for getting list of chararcters
     static let getCharacterListRequest = APIRequest(endpoint: .character)
     
+    /// API Request for getting list of locations
+    static let getLocationsListRequest = APIRequest(endpoint: .location)
+    
     /// API Request for getting list of episodes
     static let getEpisodesListRequest = APIRequest(endpoint: .episode)
 }

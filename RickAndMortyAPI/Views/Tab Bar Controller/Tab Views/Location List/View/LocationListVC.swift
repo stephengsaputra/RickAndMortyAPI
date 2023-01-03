@@ -11,7 +11,7 @@ import UIKit
 final class LocationListVC: UIViewController {
 
     // MARK: - Properties
-    
+    internal let viewModel = LocationListVM()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,5 +28,7 @@ final class LocationListVC: UIViewController {
         
         self.title = "Locations"
         view.backgroundColor = .systemBackground
+        
+        viewModel.fetchLocations()
     }
 }

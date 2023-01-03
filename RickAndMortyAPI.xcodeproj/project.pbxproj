@@ -27,6 +27,7 @@
 		DBBC789F2963EDC600A026D9 /* LocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC789E2963EDC600A026D9 /* LocationsResponse.swift */; };
 		DBBC78A12963EDEC00A026D9 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A02963EDEC00A026D9 /* Info.swift */; };
 		DBBC78A32963EE0700A026D9 /* EpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A22963EE0700A026D9 /* EpisodesResponse.swift */; };
+		DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A62963EEB000A026D9 /* LocationListVM.swift */; };
 		DBE094EA295FDD8300C9A57B /* CharacterListVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE094E9295FDD8300C9A57B /* CharacterListVC + Extensions.swift */; };
 		DBF20AA5295C94E300B3C83C /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */; };
 		DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA6295C94F800B3C83C /* LocationListVC.swift */; };
@@ -60,6 +61,7 @@
 		DBBC789E2963EDC600A026D9 /* LocationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResponse.swift; sourceTree = "<group>"; };
 		DBBC78A02963EDEC00A026D9 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		DBBC78A22963EE0700A026D9 /* EpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesResponse.swift; sourceTree = "<group>"; };
+		DBBC78A62963EEB000A026D9 /* LocationListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVM.swift; sourceTree = "<group>"; };
 		DBE094E9295FDD8300C9A57B /* CharacterListVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterListVC + Extensions.swift"; sourceTree = "<group>"; };
 		DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
 		DBF20AA6295C94F800B3C83C /* LocationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVC.swift; sourceTree = "<group>"; };
@@ -114,7 +116,8 @@
 		DB440129295D4A9900319DF2 /* Location List */ = {
 			isa = PBXGroup;
 			children = (
-				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
+				DBBC78A52963EEA500A026D9 /* View Model */,
+				DBBC78A42963EE9F00A026D9 /* View */,
 			);
 			path = "Location List";
 			sourceTree = "<group>";
@@ -290,6 +293,22 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		DBBC78A42963EE9F00A026D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBBC78A52963EEA500A026D9 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBBC78A62963EEB000A026D9 /* LocationListVM.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		DBF20AA3295C94C100B3C83C /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +395,7 @@
 				DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */,
 				DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */,
 				DBFB046B295C992500E9175C /* APIService.swift in Sources */,
+				DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */,
 				DBBC789F2963EDC600A026D9 /* LocationsResponse.swift in Sources */,
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
