@@ -41,16 +41,16 @@ final class TabViewController: UITabBarController {
         }
         
         let nav1 = UINavigationController(rootViewController: characterListVC)
-        nav1.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "person"), tag: 1)
+        nav1.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(named: "user"), tag: 1)
         
         let nav2 = UINavigationController(rootViewController: locationListVC)
-        nav2.tabBarItem = UITabBarItem(title: "Locations", image: UIImage(systemName: "globe"), tag: 2)
+        nav2.tabBarItem = UITabBarItem(title: "Locations", image: UIImage(named: "map"), tag: 2)
         
         let nav3 = UINavigationController(rootViewController: episodeListVC)
-        nav3.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(systemName: "tv"), tag: 3)
+        nav3.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "screen"), tag: 3)
         
         let nav4 = UINavigationController(rootViewController: settingsVC)
-        nav4.tabBarItem = UITabBarItem(title: "Character", image: UIImage(systemName: "gear"), tag: 4)
+        nav4.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings"), tag: 4)
         
         let navigationVC = [nav1, nav2, nav3, nav4]
         
