@@ -58,10 +58,27 @@ final class CharacterListVM {
             
             switch result {
                 case .success(let model):
-                    self?.characters.append(contentsOf: model.results ?? [])
+
                     self?.apiInfo = model.info
-                    self?.isLoadingMoreCharacters = false
+                
+                    let originalCount = self?.characters.count
+                    let newCount = model.results?.count
+                    let total = (originalCount ?? 0) + (newCount ?? 0)
+                
+                    let startingIndex = total - (newCount ?? 0)
+                    let indexPathsToAdd: [IndexPath] = Array(startingIndex..<(startingIndex + (newCount ?? 0))).compactMap { int in
+                        return IndexPath(row: int, section: 0 )
+                    }
+                
+                    self?.characters.append(contentsOf: model.results ?? [])
+                    DispatchQueue.main.async {
+                        
+                        self?.delegate?.didLoadMoreCharacters(with: indexPathsToAdd)
+                        self?.isLoadingMoreCharacters = false
+                    }
+                
                 case .failure(let failure):
+                
                     print(String(describing: failure))
                     self?.isLoadingMoreCharacters = false
             }

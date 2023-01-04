@@ -62,6 +62,7 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
         guard viewModel.shouldShowLoadMoreIndicator else {
             return .zero
         }
+        
         return CGSize(width: collectionView.frame.width, height: 100)
     }
     
@@ -72,11 +73,7 @@ extension CharacterListVC: UICollectionViewDelegate, UICollectionViewDataSource,
         let lastElement = viewModel.characters.count - 1
         
         if indexPath.row == lastElement {
-            
             viewModel.fetchMoreCharacters(url: url)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.collectionView.reloadData()
-            }
         }
     }
 }
@@ -91,6 +88,13 @@ extension CharacterListVC: CharacterListVCDelegate {
         collectionView.isHidden = false
         UIView.animate(withDuration: 0.4) {
             self.collectionView.alpha = 1
+        }
+    }
+    
+    func didLoadMoreCharacters(with newIndexPath: [IndexPath]) {
+        
+        collectionView.performBatchUpdates {
+            self.collectionView.insertItems(at: newIndexPath)
         }
     }
 }

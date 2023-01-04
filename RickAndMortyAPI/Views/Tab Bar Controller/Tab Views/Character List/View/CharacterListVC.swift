@@ -8,7 +8,9 @@
 import UIKit
 
 protocol CharacterListVCDelegate: AnyObject {
+    
     func didLoadInitialCharacters()
+    func didLoadMoreCharacters(with newIndexPath: [IndexPath])
 }
 
 /// Controller to show and search for Character
