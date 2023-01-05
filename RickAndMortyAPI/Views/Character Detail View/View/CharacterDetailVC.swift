@@ -11,7 +11,23 @@ import UIKit
 final class CharacterDetailVC: UIViewController {
 
     // MARK: - Properties
-    private let viewModel: CharacterDetailVM
+    internal lazy var collectionViewLayout: UICollectionViewCompositionalLayout = {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+            return self.createSection(for: sectionIndex)
+        }
+        return layout
+    }()
+    
+    internal lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
+    }()
+    
+    internal let viewModel: CharacterDetailVM
     
     // MARK: - Lifecycle
     init(viewModel: CharacterDetailVM) {
@@ -32,17 +48,29 @@ final class CharacterDetailVC: UIViewController {
     }
     
     // MARK: - Selectors
-    
+    @objc func handleShareButton() {
+        
+        
+    }
     
     // MARK: - Helpers
     func configureUI() {
         
         view.backgroundColor = .systemBackground
+        
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
     }
     
     func configureNavigation() {
         
         self.title = viewModel.title
-        self.navigationItem.largeTitleDisplayMode = .never
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareButton))
     }
 }

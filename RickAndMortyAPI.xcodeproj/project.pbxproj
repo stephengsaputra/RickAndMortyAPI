@@ -14,6 +14,7 @@
 		DB440132295DE86600319DF2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */; };
 		DB440134295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */; };
 		DB4DBD792961BD71005077BC /* LoadingFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4DBD782961BD71005077BC /* LoadingFooterCollectionReusableView.swift */; };
+		DB595E3A29672029008F44DD /* CharacterDetailVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB595E3929672029008F44DD /* CharacterDetailVC + Extensions.swift */; };
 		DB6C009E295C914000129B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009D295C914000129B2D /* AppDelegate.swift */; };
 		DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C009F295C914000129B2D /* SceneDelegate.swift */; };
 		DB6C00A2295C914000129B2D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00A1295C914000129B2D /* TabViewController.swift */; };
@@ -28,6 +29,7 @@
 		DBBC78A12963EDEC00A026D9 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A02963EDEC00A026D9 /* Info.swift */; };
 		DBBC78A32963EE0700A026D9 /* EpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A22963EE0700A026D9 /* EpisodesResponse.swift */; };
 		DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC78A62963EEB000A026D9 /* LocationListVM.swift */; };
+		DBCEC17329651C1D006016DF /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEC17229651C1D006016DF /* ImageManager.swift */; };
 		DBE094EA295FDD8300C9A57B /* CharacterListVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE094E9295FDD8300C9A57B /* CharacterListVC + Extensions.swift */; };
 		DBF20AA5295C94E300B3C83C /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */; };
 		DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA6295C94F800B3C83C /* LocationListVC.swift */; };
@@ -46,6 +48,7 @@
 		DB440131295DE86600319DF2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB440133295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCellVM.swift; sourceTree = "<group>"; };
 		DB4DBD782961BD71005077BC /* LoadingFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		DB595E3929672029008F44DD /* CharacterDetailVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterDetailVC + Extensions.swift"; sourceTree = "<group>"; };
 		DB6C009A295C914000129B2D /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6C009D295C914000129B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6C009F295C914000129B2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		DBBC78A02963EDEC00A026D9 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		DBBC78A22963EE0700A026D9 /* EpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesResponse.swift; sourceTree = "<group>"; };
 		DBBC78A62963EEB000A026D9 /* LocationListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVM.swift; sourceTree = "<group>"; };
+		DBCEC17229651C1D006016DF /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		DBE094E9295FDD8300C9A57B /* CharacterListVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterListVC + Extensions.swift"; sourceTree = "<group>"; };
 		DBF20AA4295C94E300B3C83C /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
 		DBF20AA6295C94F800B3C83C /* LocationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVC.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		DB6C00B6295C938700129B2D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DBCEC17229651C1D006016DF /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7A7AA6296075D6004CD2FB /* CharacterDetailVC.swift */,
+				DB595E3929672029008F44DD /* CharacterDetailVC + Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */,
 				DBBC789F2963EDC600A026D9 /* LocationsResponse.swift in Sources */,
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
+				DB595E3A29672029008F44DD /* CharacterDetailVC + Extensions.swift in Sources */,
 				DB6C00B9295C93BF00129B2D /* Location.swift in Sources */,
 				DB4DBD792961BD71005077BC /* LoadingFooterCollectionReusableView.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
@@ -413,6 +420,7 @@
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,
 				DB440134295DE98D00319DF2 /* CharacterCollectionViewCellVM.swift in Sources */,
+				DBCEC17329651C1D006016DF /* ImageManager.swift in Sources */,
 				DBBC78A32963EE0700A026D9 /* EpisodesResponse.swift in Sources */,
 				DB440130295DE13D00319DF2 /* UIViewExtensions.swift in Sources */,
 				DBBC78A12963EDEC00A026D9 /* Info.swift in Sources */,

@@ -96,8 +96,15 @@ final class APIRequest {
             if !components.isEmpty {
                 
                 let endpointString = components[0]
+                var pathComponents: [String] = []
+                
+                if components.count > 1 {
+                    pathComponents = components
+                    pathComponents.removeFirst()
+                }
+                
                 if let apiEndpoint = APIEndpoint(rawValue: endpointString) {
-                    self.init(endpoint: apiEndpoint)
+                    self.init(endpoint: apiEndpoint, pathComponents: pathComponents)
                     return
                 }
             }
