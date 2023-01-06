@@ -15,7 +15,17 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        switch section {
+            case 0:
+                return 1
+            case 1:
+                return 8
+            case 2:
+                return 20
+            default:
+                return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,7 +44,8 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     
-    func createSection(for sectionIndex: Int) -> NSCollectionLayoutSection {
+    // MARK: - CollectionView Layout
+    internal func createSection(for sectionIndex: Int) -> NSCollectionLayoutSection {
         
         let sectionType = viewModel.sections
         switch sectionType[sectionIndex] {
@@ -56,7 +67,7 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(150)), subitems: [item])
+            heightDimension: .fractionalHeight(0.5)), subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -66,13 +77,13 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
     private func createInformationSectionLayout() -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
+            widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(150)), subitems: [item])
+            heightDimension: .absolute(150)), subitems: [item, item])
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -84,13 +95,14 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 8)
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.8),
             heightDimension: .absolute(150)), subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
         
         return section
     }
