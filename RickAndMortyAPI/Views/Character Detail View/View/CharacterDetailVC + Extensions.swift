@@ -16,32 +16,47 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        switch section {
-            case 0:
+        let sectionType = viewModel.sections[section]
+        
+        switch sectionType {
+            case .photo:
                 return 1
-            case 1:
-                return 8
-            case 2:
-                return 20
-            default:
-                return 1
+            case .information(let viewModels):
+                return viewModels.count
+            case .episodes(let viewModels):
+                return viewModels.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let sectionType = viewModel.sections[indexPath.section]
         
-        switch indexPath.section {
-        case 0:
-            cell.backgroundColor = .systemYellow
-        case 1:
-            cell.backgroundColor = .systemPink
-        default:
+        switch sectionType {
+        case .photo(let viewModel):
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterDetailPhotoCollectionViewCell.identifier,
+                for: indexPath) as! CharacterDetailPhotoCollectionViewCell
+            cell.configure(with: viewModel)
             cell.backgroundColor = .systemPurple
+            return cell
+        case .information(let viewModels):
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterDetailInformationCollectionViewCell.identifier,
+                for: indexPath) as! CharacterDetailInformationCollectionViewCell
+            cell.configure(with: viewModels[indexPath.row])
+            cell.backgroundColor = .systemBlue
+            cell.layer.cornerRadius = 12
+            return cell
+        case .episodes(let viewModels):
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterDetailEpisodesCollectionViewCell.identifier,
+                for: indexPath) as! CharacterDetailEpisodesCollectionViewCell
+            cell.configure(with: viewModels[indexPath.row])
+            cell.backgroundColor = .systemOrange
+            cell.layer.cornerRadius = 12
+            return cell
         }
-        
-        return cell
     }
     
     // MARK: - CollectionView Layout

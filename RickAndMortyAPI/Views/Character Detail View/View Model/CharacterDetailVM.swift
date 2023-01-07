@@ -11,16 +11,17 @@ final class CharacterDetailVM {
     
     private let character: Character
     
-    enum SectionType: CaseIterable {
-        case photo
-        case information
-        case episodes
+    enum SectionType {
+        case photo(viewModel: CharacterDetailPhotoVM)
+        case information(viewModels: [CharacterDetailInformationVM])
+        case episodes(viewModels: [CharacterDetailEpisodesVM])
     }
     
-    public let sections = SectionType.allCases
+    public var sections: [SectionType] = []
     
     init(character: Character) {
         self.character = character
+        self.setupSections()
     }
     
     private var requestURL: URL? {
@@ -29,5 +30,14 @@ final class CharacterDetailVM {
     
     public var title: String {
         character.name ?? ""
+    }
+    
+    private func setupSections() {
+        
+        sections = [
+            .photo(viewModel: .init()),
+            .information(viewModels: [.init(), .init(), .init(), .init()]),
+            .episodes(viewModels: [.init(), .init(), .init(), .init(), .init(), .init(), .init(), .init()])
+        ]
     }
 }

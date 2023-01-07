@@ -20,6 +20,9 @@ final class CharacterDetailVC: UIViewController {
     
     internal lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.register(CharacterDetailPhotoCollectionViewCell.self, forCellWithReuseIdentifier: CharacterDetailPhotoCollectionViewCell.identifier)
+        collectionView.register(CharacterDetailInformationCollectionViewCell.self, forCellWithReuseIdentifier: CharacterDetailInformationCollectionViewCell.identifier)
+        collectionView.register(CharacterDetailEpisodesCollectionViewCell.self, forCellWithReuseIdentifier: CharacterDetailEpisodesCollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
