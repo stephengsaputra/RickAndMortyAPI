@@ -9,8 +9,10 @@ import Foundation
 
 final class CharacterDetailEpisodesVM {
     
-    init() {
-        
+    let episodeDataURL: URL?
+    
+    init(episodeDataURL: URL?) {
+        self.episodeDataURL = episodeDataURL
     }
     
     

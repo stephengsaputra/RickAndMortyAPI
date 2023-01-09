@@ -35,9 +35,20 @@ final class CharacterDetailVM {
     private func setupSections() {
         
         sections = [
-            .photo(viewModel: .init()),
-            .information(viewModels: [.init(), .init(), .init(), .init()]),
-            .episodes(viewModels: [.init(), .init(), .init(), .init(), .init(), .init(), .init(), .init()])
+            .photo(viewModel: .init(imageURL: URL(string: character.image ?? ""))),
+            .information(viewModels: [
+                .init(title: "Status", value: character.status?.text ?? ""),
+                .init(title: "Gender", value: character.gender?.rawValue ?? ""),
+                .init(title: "Type", value: character.type ?? ""),
+                .init(title: "Species", value: character.species ?? ""),
+                .init(title: "Origin", value: character.origin?.name ?? ""),
+                .init(title: "Location", value: character.location?.name ?? ""),
+                .init(title: "Created", value: character.created ?? ""),
+                .init(title: "Total Episodes", value: "\(character.episode?.count)")
+            ]),
+            .episodes(viewModels: (character.episode?.compactMap({
+                return CharacterDetailEpisodesVM(episodeDataURL: URL(string: $0))
+            }))!)
         ]
     }
 }

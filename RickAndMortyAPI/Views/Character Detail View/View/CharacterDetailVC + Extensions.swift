@@ -38,23 +38,18 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
                 withReuseIdentifier: CharacterDetailPhotoCollectionViewCell.identifier,
                 for: indexPath) as! CharacterDetailPhotoCollectionViewCell
             cell.configure(with: viewModel)
-            cell.backgroundColor = .systemPurple
             return cell
         case .information(let viewModels):
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CharacterDetailInformationCollectionViewCell.identifier,
                 for: indexPath) as! CharacterDetailInformationCollectionViewCell
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemBlue
-            cell.layer.cornerRadius = 12
             return cell
         case .episodes(let viewModels):
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CharacterDetailEpisodesCollectionViewCell.identifier,
                 for: indexPath) as! CharacterDetailEpisodesCollectionViewCell
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemOrange
-            cell.layer.cornerRadius = 12
             return cell
         }
     }
@@ -81,8 +76,8 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0)
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)), subitems: [item])
+            widthDimension: .absolute(view.frame.width),
+            heightDimension: .absolute(view.frame.width)), subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
         

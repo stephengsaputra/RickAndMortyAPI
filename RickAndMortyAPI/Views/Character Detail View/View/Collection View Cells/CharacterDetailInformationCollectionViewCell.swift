@@ -34,5 +34,7 @@ class CharacterDetailInformationCollectionViewCell: UICollectionViewCell {
     // MARK: - Helpers
     private func configureUI() {
         
+        contentView.backgroundColor = .secondarySystemBackground
+        contentView.layer.cornerRadius = 12
     }
 }
