@@ -37,14 +37,14 @@ final class CharacterDetailVM {
         sections = [
             .photo(viewModel: .init(imageURL: URL(string: character.image ?? ""))),
             .information(viewModels: [
-                .init(title: "Status", value: character.status?.text ?? ""),
-                .init(title: "Gender", value: character.gender?.rawValue ?? ""),
-                .init(title: "Type", value: character.type ?? ""),
-                .init(title: "Species", value: character.species ?? ""),
-                .init(title: "Origin", value: character.origin?.name ?? ""),
-                .init(title: "Location", value: character.location?.name ?? ""),
-                .init(title: "Created", value: character.created ?? ""),
-                .init(title: "Total Episodes", value: "\(character.episode?.count)")
+                .init(type: .status, value: character.status?.text ?? ""),
+                .init(type: .gender, value: character.gender?.rawValue ?? ""),
+                .init(type: .type, value: character.type ?? ""),
+                .init(type: .species, value: character.species ?? ""),
+                .init(type: .origin, value: character.origin?.name ?? ""),
+                .init(type: .location, value: character.location?.name ?? ""),
+                .init(type: .created, value: character.created ?? ""),
+                .init(type: .totalEpisodesCount, value: "\(character.episode?.count ?? 0)")
             ]),
             .episodes(viewModels: (character.episode?.compactMap({
                 return CharacterDetailEpisodesVM(episodeDataURL: URL(string: $0))
