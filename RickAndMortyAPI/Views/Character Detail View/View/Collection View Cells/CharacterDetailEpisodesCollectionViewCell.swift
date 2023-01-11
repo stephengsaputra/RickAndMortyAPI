@@ -29,6 +29,10 @@ class CharacterDetailEpisodesCollectionViewCell: UICollectionViewCell {
     
     func configure(with viewModel: CharacterDetailEpisodesVM) {
         
+        viewModel.registerForData { data in
+            print(data.name)
+        }
+        viewModel.fetchEpisode()
     }
     
     // MARK: - Helpers
