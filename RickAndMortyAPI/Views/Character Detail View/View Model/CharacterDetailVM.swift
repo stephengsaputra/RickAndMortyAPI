@@ -34,8 +34,11 @@ final class CharacterDetailVM {
     
     private func setupSections() {
         
-        sections = [
-            .photo(viewModel: .init(imageURL: URL(string: character.image ?? ""))),
+        // Add Photo Section
+        sections.append(.photo(viewModel: .init(imageURL: URL(string: character.image ?? ""))))
+        
+        // Add Information Section
+        sections.append(
             .information(viewModels: [
                 .init(type: .status, value: character.status?.text ?? ""),
                 .init(type: .gender, value: character.gender?.rawValue ?? ""),
@@ -45,10 +48,14 @@ final class CharacterDetailVM {
                 .init(type: .location, value: character.location?.name ?? ""),
                 .init(type: .created, value: character.created ?? ""),
                 .init(type: .totalEpisodesCount, value: "\(character.episode?.count ?? 0)")
-            ]),
+            ])
+        )
+        
+        // Add Episodes Section
+        sections.append(
             .episodes(viewModels: (character.episode?.compactMap({
                 return CharacterDetailEpisodesVM(episodeDataURL: URL(string: $0))
             }))!)
-        ]
+        )
     }
 }
