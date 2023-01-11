@@ -37,7 +37,7 @@ class CharacterDetailInformationCollectionViewCell: UICollectionViewCell {
     internal lazy var titleContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .tertiarySystemBackground
+        view.backgroundColor = .systemGray5
         view.clipsToBounds = true
         return view
     }()
