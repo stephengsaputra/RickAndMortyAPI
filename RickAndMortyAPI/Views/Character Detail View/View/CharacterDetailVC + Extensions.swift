@@ -28,6 +28,24 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sectionType = viewModel.sections[indexPath.section]
+        
+        switch sectionType {
+        case .photo:
+            break
+        case .information:
+            break
+        case .episodes:
+            let episodeURL = viewModel.episodes
+            let selection = episodeURL[indexPath.row]
+            
+            let vc = EpisodeDetailVC(url: URL(string: selection))
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let sectionType = viewModel.sections[indexPath.section]
