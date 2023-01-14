@@ -51,24 +51,24 @@ extension CharacterDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         let sectionType = viewModel.sections[indexPath.section]
         
         switch sectionType {
-        case .photo(let viewModel):
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CharacterDetailPhotoCollectionViewCell.identifier,
-                for: indexPath) as! CharacterDetailPhotoCollectionViewCell
-            cell.configure(with: viewModel)
-            return cell
-        case .information(let viewModels):
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CharacterDetailInformationCollectionViewCell.identifier,
-                for: indexPath) as! CharacterDetailInformationCollectionViewCell
-            cell.configure(with: viewModels[indexPath.row])
-            return cell
-        case .episodes(let viewModels):
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CharacterDetailEpisodesCollectionViewCell.identifier,
-                for: indexPath) as! CharacterDetailEpisodesCollectionViewCell
-            cell.configure(with: viewModels[indexPath.row])
-            return cell
+            case .photo(let viewModel):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CharacterDetailPhotoCollectionViewCell.identifier,
+                    for: indexPath) as! CharacterDetailPhotoCollectionViewCell
+                cell.configure(with: viewModel)
+                return cell
+            case .information(let viewModels):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CharacterDetailInformationCollectionViewCell.identifier,
+                    for: indexPath) as! CharacterDetailInformationCollectionViewCell
+                cell.configure(with: viewModels[indexPath.row])
+                return cell
+            case .episodes(let viewModels):
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CharacterDetailEpisodesCollectionViewCell.identifier,
+                    for: indexPath) as! CharacterDetailEpisodesCollectionViewCell
+                cell.configure(with: viewModels[indexPath.row])
+                return cell
         }
     }
     
