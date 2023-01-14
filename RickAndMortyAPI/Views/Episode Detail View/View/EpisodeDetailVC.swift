@@ -11,11 +11,11 @@ import UIKit
 final class EpisodeDetailVC: UIViewController {
 
     // MARK: - Properties
-    private var url: URL?
+    private let viewModel: EpisodeDetailVM
     
     // MARK: - Lifecycle
     init(url: URL?) {
-        self.url = url
+        self.viewModel = .init(endpointURL: url)
         super.init(nibName: nil, bundle: nil)
     }
     

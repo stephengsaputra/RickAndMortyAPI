@@ -18,7 +18,7 @@ final class APIRequest {
     }
     
     /// Desired endpoint
-    private let endpoint: APIEndpoint
+    let endpoint: APIEndpoint
     
     /// Path components for API (IF ANY!)
     private let pathComponents: [String]

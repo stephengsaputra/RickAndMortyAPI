@@ -13,6 +13,8 @@ final class APIService {
     /// Shared singleton instance
     static let shared = APIService()
     
+    private let cacheManager = APICacheManager()
+    
     /// Privatized constructor
     private init() {}
     
@@ -23,12 +25,22 @@ final class APIService {
     ///   - completion: Callback with data or error
     func execute<S: Codable>(_ request: APIRequest, expecting type: S.Type, completion: @escaping (Result<S, Error>) -> Void) {
         
+        if let cachedData = cacheManager.cachedResponse(for: request.endpoint, url: request.url) {
+            
+            do {
+                let result = try JSONDecoder().decode(type.self, from: cachedData)
+                completion(.success(result))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(APIServiceError.failedToCreateRequest))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
             
             guard let data = data, error == nil else {
                 completion(.failure(error ?? APIServiceError.failedToGetData))
@@ -38,6 +50,7 @@ final class APIService {
             // Decode the response
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
+                self?.cacheManager.setCache(for: request.endpoint, url: request.url, data: data)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
