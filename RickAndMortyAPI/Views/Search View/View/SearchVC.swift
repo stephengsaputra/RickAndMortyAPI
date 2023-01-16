@@ -1,21 +1,33 @@
 //
-//  EpisodeDetailVC.swift
+//  SearchVC.swift
 //  RickAndMortyAPI
 //
-//  Created by Stephen Giovanni Saputra on 12/01/23.
+//  Created by Stephen Giovanni Saputra on 16/01/23.
 //
 
 import UIKit
 
-/// Controller to display a single episode
-final class EpisodeDetailVC: UIViewController {
+/// Configurable view controller to search
+class SearchVC: UIViewController {
 
     // MARK: - Properties
-    private let viewModel: EpisodeDetailVM
+    struct Config {
+        
+        enum `Type` {
+            case character
+            case location
+            case episode
+        }
+        
+        let type: `Type`
+    }
+    
+    private let config: Config
     
     // MARK: - Lifecycle
-    init(url: URL?) {
-        self.viewModel = .init(endpointURL: url)
+    init(config: Config) {
+        
+        self.config = config
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,10 +43,7 @@ final class EpisodeDetailVC: UIViewController {
     }
     
     // MARK: - Selectors
-    @objc func handleShareButton() {
-        
-        
-    }
+    
     
     // MARK: - Helpers
     func configureUI() {
@@ -44,8 +53,7 @@ final class EpisodeDetailVC: UIViewController {
     
     func configureNavigation() {
         
-        self.title = "Episode"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareButton))
+        self.title = "Search"
+        self.navigationItem.largeTitleDisplayMode = .never
     }
 }

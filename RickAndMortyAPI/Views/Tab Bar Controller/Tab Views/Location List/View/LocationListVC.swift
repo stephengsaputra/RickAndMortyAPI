@@ -18,10 +18,14 @@ final class LocationListVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureNavigation()
     }
     
     // MARK: - Selectors
-    
+    @objc func handleSearchButton() {
+        
+        
+    }
     
     // MARK: - Helpers
     func configureUI() {
@@ -30,5 +34,10 @@ final class LocationListVC: UIViewController {
         view.backgroundColor = .systemBackground
         
         viewModel.fetchLocations()
+    }
+    
+    func configureNavigation() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleSearchButton))
     }
 }

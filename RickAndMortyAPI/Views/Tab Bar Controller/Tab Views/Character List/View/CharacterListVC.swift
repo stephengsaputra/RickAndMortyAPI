@@ -51,6 +51,7 @@ final class CharacterListVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureNavigation()
         
         spinner.startAnimating()
         
@@ -59,7 +60,11 @@ final class CharacterListVC: UIViewController {
     }
     
     // MARK: - Selectors
-    
+    @objc func handleSearchButton() {
+        
+        let vc = SearchVC(config: .init(type: .character))
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     // MARK: - Helpers
     func configureUI() {
@@ -80,5 +85,10 @@ final class CharacterListVC: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
+    }
+    
+    func configureNavigation() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleSearchButton))
     }
 }

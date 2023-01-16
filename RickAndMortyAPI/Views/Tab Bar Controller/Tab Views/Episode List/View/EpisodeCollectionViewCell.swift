@@ -68,7 +68,7 @@ class EpisodeCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
+        label.numberOfLines = 1
         return label
     }()
     

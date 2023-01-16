@@ -51,6 +51,7 @@ final class EpisodeListVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureNavigation()
         
         spinner.startAnimating()
         
@@ -59,7 +60,10 @@ final class EpisodeListVC: UIViewController {
     }
     
     // MARK: - Selectors
-    
+    @objc func handleSearchButton() {
+        
+        
+    }
     
     // MARK: - Helpers
     func configureUI() {
@@ -80,5 +84,10 @@ final class EpisodeListVC: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
+    }
+    
+    func configureNavigation() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleSearchButton))
     }
 }

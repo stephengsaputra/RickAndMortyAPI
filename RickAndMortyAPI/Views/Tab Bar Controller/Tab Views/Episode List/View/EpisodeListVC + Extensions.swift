@@ -32,9 +32,9 @@ extension EpisodeListVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 45) / 2
+        let width = (bounds.width - 20)
 
-        return CGSize(width: width, height: width * 0.8)
+        return CGSize(width: width, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

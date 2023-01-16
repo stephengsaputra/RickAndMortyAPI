@@ -48,6 +48,7 @@
 		DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA6295C94F800B3C83C /* LocationListVC.swift */; };
 		DBF20AA9295C94FF00B3C83C /* EpisodeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */; };
 		DBF20AAB295C950E00B3C83C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF20AAA295C950E00B3C83C /* SettingsVC.swift */; };
+		DBF80C1D2975AE290099E206 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF80C1C2975AE290099E206 /* SearchVC.swift */; };
 		DBFB046B295C992500E9175C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046A295C992500E9175C /* APIService.swift */; };
 		DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046C295C994F00E9175C /* APIRequest.swift */; };
 		DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB046E295C99C900E9175C /* APIEndpoint.swift */; };
@@ -97,6 +98,7 @@
 		DBF20AA6295C94F800B3C83C /* LocationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListVC.swift; sourceTree = "<group>"; };
 		DBF20AA8295C94FF00B3C83C /* EpisodeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListVC.swift; sourceTree = "<group>"; };
 		DBF20AAA295C950E00B3C83C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DBF80C1C2975AE290099E206 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		DBFB046A295C992500E9175C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DBFB046C295C994F00E9175C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DBFB046E295C99C900E9175C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				DB6C00BF295C93F900129B2D /* Tab Bar Controller */,
 				DB7A7AA3296075B2004CD2FB /* Character Detail View */,
 				DB832F7C29704D7800F4A8C1 /* Episode Detail View */,
+				DBF80C192975AE000099E206 /* Search View */,
 				DB4DBD772961BD4D005077BC /* Reusable Views */,
 			);
 			path = Views;
@@ -413,6 +416,30 @@
 			path = "Tab Views";
 			sourceTree = "<group>";
 		};
+		DBF80C192975AE000099E206 /* Search View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF80C1B2975AE100099E206 /* View Model */,
+				DBF80C1A2975AE0C0099E206 /* View */,
+			);
+			path = "Search View";
+			sourceTree = "<group>";
+		};
+		DBF80C1A2975AE0C0099E206 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF80C1C2975AE290099E206 /* SearchVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBF80C1B2975AE100099E206 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +518,7 @@
 				DBA8D28729725462006FF1E1 /* EpisodeDetailVM.swift in Sources */,
 				DBFB046B295C992500E9175C /* APIService.swift in Sources */,
 				DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */,
+				DBF80C1D2975AE290099E206 /* SearchVC.swift in Sources */,
 				DBBC789F2963EDC600A026D9 /* LocationsResponse.swift in Sources */,
 				DBFB046F295C99C900E9175C /* APIEndpoint.swift in Sources */,
 				DB595E3A29672029008F44DD /* CharacterDetailVC + Extensions.swift in Sources */,
