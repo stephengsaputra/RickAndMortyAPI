@@ -7,15 +7,21 @@
 
 import UIKit
 
+protocol EpisodeDetailVCDelegate: AnyObject {
+    
+    func didFetchEpisodeDetail()
+}
+
 /// Controller to display a single episode
 final class EpisodeDetailVC: UIViewController {
 
     // MARK: - Properties
     private let viewModel: EpisodeDetailVM
+    private lazy var episodeDetailView = EpisodeDetailView()
     
     // MARK: - Lifecycle
     init(url: URL?) {
-        self.viewModel = .init(endpointURL: url)
+        self.viewModel = EpisodeDetailVM(endpointURL: url)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,6 +32,9 @@ final class EpisodeDetailVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        viewModel.delegate = self
+        viewModel.fetchEpisodeData()
+        
         configureUI()
         configureNavigation()
     }
@@ -39,7 +48,14 @@ final class EpisodeDetailVC: UIViewController {
     // MARK: - Helpers
     func configureUI() {
         
-        view.backgroundColor = .systemBackground
+        view.addSubview(episodeDetailView)
+        NSLayoutConstraint.activate([
+            
+            episodeDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            episodeDetailView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            episodeDetailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            episodeDetailView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
     }
     
     func configureNavigation() {
@@ -47,5 +63,12 @@ final class EpisodeDetailVC: UIViewController {
         self.title = "Episode"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareButton))
+    }
+}
+
+extension EpisodeDetailVC: EpisodeDetailVCDelegate {
+    
+    func didFetchEpisodeDetail() {
+        episodeDetailView.configure(with: viewModel)
     }
 }

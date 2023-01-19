@@ -21,9 +21,6 @@ final class LocationListVM {
                 
                     self?.locations.append(contentsOf: model.results ?? [])
                     print(String(describing: self?.locations))
-                    DispatchQueue.main.async {
-//                        self?.delegate?.didLoadInitialCharacters()
-                    }
                     
                     let info = model.info
                     self?.apiInfo = info

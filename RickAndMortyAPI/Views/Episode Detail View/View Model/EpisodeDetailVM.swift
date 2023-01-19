@@ -10,10 +10,26 @@ import Foundation
 final class EpisodeDetailVM {
     
     private let endpointURL: URL?
+    public weak var delegate: EpisodeDetailVCDelegate?
     
+    private var dataTuple: (Episode, [Character])? {
+        didSet {
+            DispatchQueue.main.async {
+                self.delegate?.didFetchEpisodeDetail()
+            }
+        }
+    }
+    
+    enum SectionType {
+        case information(viewModels: [EpisodeInfoCollectionViewCellVM])
+        case characters(viewModels: [CharacterCollectionViewCellVM])
+    }
+    
+    public var sections: [SectionType] = []
+    
+    // MARK: - Initializer
     init(endpointURL: URL?) {
         self.endpointURL = endpointURL
-        fetchEpisodeData()
     }
     
     func fetchEpisodeData() {
@@ -22,13 +38,47 @@ final class EpisodeDetailVM {
             return
         }
         
-        APIService.shared.execute(request, expecting: Episode.self) { result in
+        APIService.shared.execute(request, expecting: Episode.self) { [weak self] result in
             
             switch result {
-            case .success(let success):
-                print(String(describing: success))
-            case .failure(let failure):
-                print(String(describing: failure))
+            case .success(let model):
+                self?.fetchRelatedCharacter(episode: model)
+            case .failure:
+                break
+            }
+        }
+    }
+    
+    private func fetchRelatedCharacter(episode: Episode) {
+        
+        let requests: [APIRequest] = (episode.characters?.compactMap({
+            return URL(string: $0)
+        }).compactMap({
+            return APIRequest(url: $0)
+        }))!
+        
+        let group = DispatchGroup()
+        var characters: [Character] = []
+        
+        for request in requests {
+            
+            group.enter()
+            
+            APIService.shared.execute(request, expecting: Character.self) { result in
+                
+                switch result {
+                case .success(let model):
+                    print(model)
+                    characters.append(model)
+                case .failure:
+                    break
+                }
+            }
+            
+            group.leave()
+            
+            group.notify(queue: .main) {
+                self.dataTuple = (episode, characters)
             }
         }
     }
