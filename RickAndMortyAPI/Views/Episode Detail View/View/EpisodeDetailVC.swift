@@ -48,6 +48,8 @@ final class EpisodeDetailVC: UIViewController {
     // MARK: - Helpers
     func configureUI() {
         
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(episodeDetailView)
         NSLayoutConstraint.activate([
             
