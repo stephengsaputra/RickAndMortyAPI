@@ -12,9 +12,10 @@ final class EpisodeDetailVM {
     private let endpointURL: URL?
     public weak var delegate: EpisodeDetailVCDelegate?
     
-    private var dataTuple: (Episode, [Character])? {
+    private var dataTuple: (episode: Episode, characters: [Character])? {
         didSet {
             DispatchQueue.main.async {
+                self.createCellViewModels()
                 self.delegate?.didFetchEpisodeDetail()
             }
         }
@@ -25,7 +26,7 @@ final class EpisodeDetailVM {
         case characters(viewModels: [CharacterCollectionViewCellVM])
     }
     
-    public var sections: [SectionType] = []
+    public var cellViewModels: [SectionType] = []
     
     // MARK: - Initializer
     init(endpointURL: URL?) {
@@ -55,7 +56,7 @@ final class EpisodeDetailVM {
             return URL(string: $0)
         }).compactMap({
             return APIRequest(url: $0)
-        }))!
+        })) ?? []
         
         let group = DispatchGroup()
         var characters: [Character] = []
@@ -78,8 +79,36 @@ final class EpisodeDetailVM {
             group.leave()
             
             group.notify(queue: .main) {
-                self.dataTuple = (episode, characters)
+                self.dataTuple = (episode: episode, characters: characters)
             }
         }
+    }
+    
+    private func createCellViewModels() {
+        
+        guard let dataTuple = dataTuple else {
+            return
+        }
+        
+        let episode = dataTuple.episode
+        cellViewModels.append(
+            .information(viewModels: [
+                .init(title: "Episode Name", value: episode.name ?? ""),
+                .init(title: "Season", value: episode.episode ?? ""),
+                .init(title: "Air Date", value: episode.airDate ?? ""),
+                .init(title: "Created", value: episode.created ?? "")
+            ])
+        )
+        
+        let characters = dataTuple.characters
+        cellViewModels.append(
+            .characters(viewModels: characters.compactMap({ character in
+                return CharacterCollectionViewCellVM(
+                    characterName: character.name ?? "",
+                    characterStatus: character.status ?? .unknown,
+                    characterImageURL: URL(string: character.image ?? "")
+                )
+            }))
+        )
     }
 }

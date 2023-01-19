@@ -10,7 +10,7 @@ import UIKit
 final class EpisodeDetailView: UIView {
 
     // MARK: - Properties
-    private var viewModel: EpisodeDetailVM? {
+    internal var viewModel: EpisodeDetailVM? {
         didSet {
             spinner.stopAnimating()
             collectionView.reloadData()
@@ -36,7 +36,8 @@ final class EpisodeDetailView: UIView {
         collectionView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(EpisodeInfoCollectionViewCell.self, forCellWithReuseIdentifier: EpisodeInfoCollectionViewCell.identifier)
+        collectionView.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
         return collectionView
     }()
     
