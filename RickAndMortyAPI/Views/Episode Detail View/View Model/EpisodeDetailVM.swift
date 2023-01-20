@@ -15,8 +15,8 @@ final class EpisodeDetailVM {
     private var dataTuple: (episode: Episode, characters: [Character])? {
         didSet {
             DispatchQueue.main.async {
-                self.createCellViewModels()
                 self.delegate?.didFetchEpisodeDetail()
+                self.createCellViewModels()
             }
         }
     }
@@ -52,16 +52,22 @@ final class EpisodeDetailVM {
     
     private func fetchRelatedCharacter(episode: Episode) {
         
-        let requests: [APIRequest] = (episode.characters?.compactMap({
-            return URL(string: $0)
-        }).compactMap({
-            return APIRequest(url: $0)
+        let requests: [APIRequest] = (episode.characters?.compactMap({ character in
+            return URL(string: character)
+        }).compactMap({ character in
+            return APIRequest(url: character)
         })) ?? []
+        
+        print("DEBUG: \(requests.count)")
         
         let group = DispatchGroup()
         var characters: [Character] = []
         
         for request in requests {
+            
+            defer {
+                group.leave()
+            }
             
             group.enter()
             
@@ -69,14 +75,11 @@ final class EpisodeDetailVM {
                 
                 switch result {
                 case .success(let model):
-                    print(model)
                     characters.append(model)
                 case .failure:
                     break
                 }
             }
-            
-            group.leave()
             
             group.notify(queue: .main) {
                 self.dataTuple = (episode: episode, characters: characters)
@@ -91,12 +94,18 @@ final class EpisodeDetailVM {
         }
         
         let episode = dataTuple.episode
+        
+        var createdString = ""
+        if let createdDate = CharacterDetailInformationVM.dateFormatter.date(from: episode.created ?? "") {
+            
+            createdString = CharacterDetailInformationVM.shortDateFormatter.string(from: createdDate)
+        }
         cellViewModels.append(
             .information(viewModels: [
                 .init(title: "Episode Name", value: episode.name ?? ""),
                 .init(title: "Season", value: episode.episode ?? ""),
                 .init(title: "Air Date", value: episode.airDate ?? ""),
-                .init(title: "Created", value: episode.created ?? "")
+                .init(title: "Created", value: createdString)
             ])
         )
         
@@ -110,5 +119,14 @@ final class EpisodeDetailVM {
                 )
             }))
         )
+    }
+    
+    func character(at index: Int) -> Character? {
+        
+        guard let dataTuple = dataTuple else {
+            return nil
+        }
+        
+        return dataTuple.characters[index]
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol EpisodeDetailVCDelegate: AnyObject {
     
     func didFetchEpisodeDetail()
+    func showCharacterDetailView(_ detailView: EpisodeDetailView, didSelect character: Character)
 }
 
 /// Controller to display a single episode
@@ -34,6 +35,7 @@ final class EpisodeDetailVC: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchEpisodeData()
+        episodeDetailView.delegate = self
         
         configureUI()
         configureNavigation()
@@ -72,5 +74,11 @@ extension EpisodeDetailVC: EpisodeDetailVCDelegate {
     
     func didFetchEpisodeDetail() {
         episodeDetailView.configure(with: viewModel)
+    }
+    
+    func showCharacterDetailView(_ detailView: EpisodeDetailView, didSelect character: Character) {
+        
+        let vc = CharacterDetailVC(viewModel: .init(character: character))
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

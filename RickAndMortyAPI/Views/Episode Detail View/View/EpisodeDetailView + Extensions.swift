@@ -10,6 +10,7 @@ import UIKit
 extension EpisodeDetailView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print(viewModel?.cellViewModels.count)
         return viewModel?.cellViewModels.count ?? 0
     }
     
@@ -29,7 +30,6 @@ extension EpisodeDetailView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         guard let sections = viewModel?.cellViewModels else {
             fatalError("Fatal error!!")
@@ -55,8 +55,21 @@ extension EpisodeDetailView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let viewModel = viewModel else {
+            return
+        }
         
+        let sections = viewModel.cellViewModels
+        
+        switch sections[indexPath.section] {
+        case .information:
+            break
+        case .characters:
+            guard let character = viewModel.character(at: indexPath.row) else {
+                return
+            }
+            delegate?.showCharacterDetailView(self, didSelect: character)
+        }
     }
     
     func layout(for section: Int) -> NSCollectionLayoutSection {
@@ -83,7 +96,7 @@ extension EpisodeDetailView: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(100)
+            heightDimension: .absolute(80)
         ), subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)

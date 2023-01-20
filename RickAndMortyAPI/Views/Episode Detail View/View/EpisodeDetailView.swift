@@ -49,6 +49,8 @@ final class EpisodeDetailView: UIView {
         return spinner
     }()
     
+    weak var delegate: EpisodeDetailVCDelegate?
+    
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         
