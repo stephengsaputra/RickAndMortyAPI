@@ -11,7 +11,9 @@ import UIKit
 final class SettingsVC: UIViewController {
 
     // MARK: - Properties
-    
+    private let viewModel = SettingsVM(cellViewModels: SettingsOptions.allCases.compactMap({ option in
+        return SettingsCellVM(type: option)
+    }))
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

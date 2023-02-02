@@ -10,7 +10,6 @@ import UIKit
 extension EpisodeDetailView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print(viewModel?.cellViewModels.count)
         return viewModel?.cellViewModels.count ?? 0
     }
     
