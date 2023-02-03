@@ -23,7 +23,7 @@ final class APIService {
     ///   - request: Request instance
     ///   - type: The type of object we expect to get back
     ///   - completion: Callback with data or error
-    func execute<S: Codable>(_ request: APIRequest, expecting type: S.Type, completion: @escaping (Result<S, Error>) -> Void) {
+    func execute<T: Codable>(_ request: APIRequest, expecting type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
         if let cachedData = cacheManager.cachedResponse(for: request.endpoint, url: request.url) {
             

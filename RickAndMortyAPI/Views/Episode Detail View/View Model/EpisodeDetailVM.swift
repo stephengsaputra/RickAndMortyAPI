@@ -14,10 +14,8 @@ final class EpisodeDetailVM {
     
     private var dataTuple: (episode: Episode, characters: [Character])? {
         didSet {
-            DispatchQueue.main.async {
-                self.delegate?.didFetchEpisodeDetail()
-                self.createCellViewModels()
-            }
+            self.delegate?.didFetchEpisodeDetail()
+            self.createCellViewModels()
         }
     }
     
@@ -26,13 +24,14 @@ final class EpisodeDetailVM {
         case characters(viewModels: [CharacterCollectionViewCellVM])
     }
     
-    public var cellViewModels: [SectionType] = []
+    public private(set) var cellViewModels: [SectionType] = []
     
     // MARK: - Initializer
     init(endpointURL: URL?) {
         self.endpointURL = endpointURL
     }
     
+    // MARK: - Functions
     func fetchEpisodeData() {
         
         guard let url = endpointURL, let request = APIRequest(url: url) else {
@@ -58,8 +57,6 @@ final class EpisodeDetailVM {
             return APIRequest(url: character)
         })) ?? []
         
-        print("DEBUG: \(requests.count)")
-        
         let group = DispatchGroup()
         var characters: [Character] = []
         
@@ -80,10 +77,10 @@ final class EpisodeDetailVM {
                     break
                 }
             }
-            
-            group.notify(queue: .main) {
-                self.dataTuple = (episode: episode, characters: characters)
-            }
+        }
+        
+        group.notify(queue: .main) {
+            self.dataTuple = (episode: episode, characters: characters)
         }
     }
     
@@ -96,10 +93,11 @@ final class EpisodeDetailVM {
         let episode = dataTuple.episode
         
         var createdString = ""
+        
         if let createdDate = CharacterDetailInformationVM.dateFormatter.date(from: episode.created ?? "") {
-            
             createdString = CharacterDetailInformationVM.shortDateFormatter.string(from: createdDate)
         }
+        
         cellViewModels.append(
             .information(viewModels: [
                 .init(title: "Episode Name", value: episode.name ?? ""),

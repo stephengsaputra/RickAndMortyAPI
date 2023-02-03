@@ -37,6 +37,9 @@
 		DB6C00B9295C93BF00129B2D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00B8295C93BF00129B2D /* Location.swift */; };
 		DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BA295C93CC00129B2D /* Episode.swift */; };
 		DB6C00BE295C93D600129B2D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C00BD295C93D600129B2D /* Character.swift */; };
+		DB6D6E0B298D334200A54482 /* LocationListVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D6E0A298D334200A54482 /* LocationListVC + Extensions.swift */; };
+		DB6D6E0D298D37E200A54482 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D6E0C298D37E200A54482 /* LocationTableViewCell.swift */; };
+		DB6D6E0F298D386A00A54482 /* LocationTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D6E0E298D386A00A54482 /* LocationTableViewCellVM.swift */; };
 		DB7A7AA7296075D6004CD2FB /* CharacterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A7AA6296075D6004CD2FB /* CharacterDetailVC.swift */; };
 		DB7A7AA929607682004CD2FB /* CharacterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A7AA829607682004CD2FB /* CharacterDetailVM.swift */; };
 		DB832F8029704DBD00F4A8C1 /* EpisodeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB832F7F29704DBD00F4A8C1 /* EpisodeDetailVC.swift */; };
@@ -95,6 +98,9 @@
 		DB6C00B8295C93BF00129B2D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DB6C00BA295C93CC00129B2D /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		DB6C00BD295C93D600129B2D /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		DB6D6E0A298D334200A54482 /* LocationListVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationListVC + Extensions.swift"; sourceTree = "<group>"; };
+		DB6D6E0C298D37E200A54482 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		DB6D6E0E298D386A00A54482 /* LocationTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCellVM.swift; sourceTree = "<group>"; };
 		DB7A7AA6296075D6004CD2FB /* CharacterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVC.swift; sourceTree = "<group>"; };
 		DB7A7AA829607682004CD2FB /* CharacterDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVM.swift; sourceTree = "<group>"; };
 		DB832F7F29704DBD00F4A8C1 /* EpisodeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailVC.swift; sourceTree = "<group>"; };
@@ -433,6 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				DBF20AA6295C94F800B3C83C /* LocationListVC.swift */,
+				DB6D6E0A298D334200A54482 /* LocationListVC + Extensions.swift */,
+				DB6D6E0C298D37E200A54482 /* LocationTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				DBBC78A62963EEB000A026D9 /* LocationListVM.swift */,
+				DB6D6E0E298D386A00A54482 /* LocationTableViewCellVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 				DB832F8029704DBD00F4A8C1 /* EpisodeDetailVC.swift in Sources */,
 				DB3F503A2969BAC0003B30DB /* CharacterDetailEpisodesCollectionViewCell.swift in Sources */,
 				DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */,
+				DB6D6E0D298D37E200A54482 /* LocationTableViewCell.swift in Sources */,
 				DBF20AA7295C94F800B3C83C /* LocationListVC.swift in Sources */,
 				DB440121295D402100319DF2 /* APIServiceError.swift in Sources */,
 				DB7A7AA929607682004CD2FB /* CharacterDetailVM.swift in Sources */,
@@ -585,8 +595,10 @@
 				DBB4F7D32974376700B56ACE /* EpisodeListVC + Extensions.swift in Sources */,
 				DB6C00BB295C93CC00129B2D /* Episode.swift in Sources */,
 				DB440128295D4A9100319DF2 /* CharacterListVM.swift in Sources */,
+				DB6D6E0B298D334200A54482 /* LocationListVC + Extensions.swift in Sources */,
 				DBE094EA295FDD8300C9A57B /* CharacterListVC + Extensions.swift in Sources */,
 				DB3F503C2969BAEA003B30DB /* CharacterDetailPhotoVM.swift in Sources */,
+				DB6D6E0F298D386A00A54482 /* LocationTableViewCellVM.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,
 				DB1640D1298BF29A00E6FA96 /* SettingsView.swift in Sources */,
