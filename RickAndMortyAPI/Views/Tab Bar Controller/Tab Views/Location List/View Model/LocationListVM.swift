@@ -36,6 +36,14 @@ final class LocationListVM {
     
     public func location(at index: Int) -> Location? {
         
+        guard index >= 0 else {
+            return nil
+        }
+        
+        guard index < locations.count else {
+            return nil
+        }
+        
         return self.locations[index]
     }
     

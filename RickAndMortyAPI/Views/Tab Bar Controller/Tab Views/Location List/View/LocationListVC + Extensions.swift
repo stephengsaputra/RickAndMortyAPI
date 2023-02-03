@@ -34,11 +34,12 @@ extension LocationListVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let locationModel = viewModel.location(at: indexPath.row) else {
-            print("ERROR")
             return
         }
         
-        print(locationModel.url)
+        let vc = LocationDetailVC(location: locationModel)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
