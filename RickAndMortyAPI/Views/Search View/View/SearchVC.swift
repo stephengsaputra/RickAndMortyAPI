@@ -33,12 +33,16 @@ class SearchVC: UIViewController {
         let type: `Type`
     }
     
-    private let config: Config
+    private let viewModel: SearchViewVM
+    private let searchView: SearchView
     
     // MARK: - Lifecycle
     init(config: Config) {
         
-        self.config = config
+        let viewModel = SearchViewVM(config: config)
+        self.viewModel = viewModel
+        self.searchView = SearchView(frame: .zero, viewModel: viewModel)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,17 +58,31 @@ class SearchVC: UIViewController {
     }
     
     // MARK: - Selectors
-    
+    @objc func didTapSearchButton() {
+        
+        print("SEARCH")
+    }
     
     // MARK: - Helpers
     func configureUI() {
         
         view.backgroundColor = .systemBackground
+        
+        view.addSubview(searchView)
+        NSLayoutConstraint.activate([
+        
+            searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            searchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            searchView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+        ])
     }
     
     func configureNavigation() {
         
-        self.title = config.type.title
+        self.title = viewModel.config.type.title
         self.navigationItem.largeTitleDisplayMode = .never
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(didTapSearchButton))
     }
 }

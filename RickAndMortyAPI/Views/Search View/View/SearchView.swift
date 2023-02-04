@@ -11,6 +11,8 @@ final class SearchView: UIView {
     
     // MARK: - Properties
     private let viewModel: SearchViewVM
+    
+    private let noResultsView = NoSearchResultsView()
  
     // MARK: - Lifecycle
     init(frame: CGRect, viewModel: SearchViewVM) {
@@ -31,8 +33,17 @@ final class SearchView: UIView {
     // MARK: - Helpers
     func configureUI() {
         
-        self.backgroundColor = .red
+        self.backgroundColor = .systemBackground
         self.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(noResultsView)
+        NSLayoutConstraint.activate([
+        
+            noResultsView.heightAnchor.constraint(equalToConstant: 150),
+            noResultsView.widthAnchor.constraint(equalToConstant: 150),
+            noResultsView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            noResultsView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
 }
 
