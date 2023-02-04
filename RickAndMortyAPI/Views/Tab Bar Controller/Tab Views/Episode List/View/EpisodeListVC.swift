@@ -62,7 +62,8 @@ final class EpisodeListVC: UIViewController {
     // MARK: - Selectors
     @objc func handleSearchButton() {
         
-        
+        let vc = SearchVC(config: .init(type: .episode))
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Helpers

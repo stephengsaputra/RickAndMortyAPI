@@ -14,8 +14,8 @@ final class LocationDetailVM {
     
     private var dataTuple: (location: Location, characters: [Character])? {
         didSet {
-            self.delegate?.didFetchLocationDetail()
             self.createCellViewModels()
+            self.delegate?.didFetchLocationDetail()
         }
     }
     

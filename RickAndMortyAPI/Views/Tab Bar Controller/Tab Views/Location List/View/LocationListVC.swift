@@ -55,7 +55,8 @@ final class LocationListVC: UIViewController {
     // MARK: - Selectors
     @objc func handleSearchButton() {
         
-        
+        let vc = SearchVC(config: .init(type: .location))
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Helpers

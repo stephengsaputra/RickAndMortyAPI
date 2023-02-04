@@ -17,6 +17,17 @@ class SearchVC: UIViewController {
             case character
             case location
             case episode
+            
+            var title: String {
+                switch self {
+                case .character:
+                    return "Search Characters"
+                case .location:
+                    return "Search Location"
+                case .episode:
+                    return "Search Episode"
+                }
+            }
         }
         
         let type: `Type`
@@ -53,7 +64,7 @@ class SearchVC: UIViewController {
     
     func configureNavigation() {
         
-        self.title = "Search"
+        self.title = config.type.title
         self.navigationItem.largeTitleDisplayMode = .never
     }
 }
