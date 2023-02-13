@@ -38,5 +38,6 @@ struct SettingsView: View {
                 viewModel.onTapHandler(viewModel.type)
             }
         }
+        .scrollContentBackground(.hidden)
     }
 }

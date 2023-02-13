@@ -54,7 +54,7 @@ final class NoSearchResultsView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .center
         stack.axis = .vertical
-        stack.spacing = 5
+        stack.spacing = 10
         
         self.addSubviews(stack)
         NSLayoutConstraint.activate([

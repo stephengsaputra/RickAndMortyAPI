@@ -65,6 +65,7 @@ final class SettingsVC: UIViewController {
         
         view.addSubview(settingsView.view)
         settingsView.view.translatesAutoresizingMaskIntoConstraints = false
+        settingsView.view.backgroundColor = .clear
         NSLayoutConstraint.activate([
             settingsView.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsView.view.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
