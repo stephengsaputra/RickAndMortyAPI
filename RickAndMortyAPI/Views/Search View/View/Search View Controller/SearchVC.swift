@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol SearchVCDelegate: AnyObject {
+    
+    func searchView(_: SearchView, didSelectOption option: SearchInputViewVM.DynamicOption)
+}
+
 /// Configurable view controller to search
 class SearchVC: UIViewController {
 
@@ -55,6 +60,14 @@ class SearchVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigation()
+        
+        searchView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        searchView.presentKeyboard()
     }
     
     // MARK: - Selectors

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1590ED299A361400ED1687 /* SearchOptionPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1590EC299A361400ED1687 /* SearchOptionPickerVC.swift */; };
+		DB1590F0299A377400ED1687 /* SearchVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1590EF299A377400ED1687 /* SearchVC + Extensions.swift */; };
+		DB1590F4299A37B600ED1687 /* SearchOptionPickerVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1590F3299A37B600ED1687 /* SearchOptionPickerVC + Extensions.swift */; };
 		DB1640CB298BEEF000E6FA96 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1640CA298BEEF000E6FA96 /* SettingsVM.swift */; };
 		DB1640CD298BEF4400E6FA96 /* SettingsCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1640CC298BEF4400E6FA96 /* SettingsCellVM.swift */; };
 		DB1640CF298BEFBA00E6FA96 /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1640CE298BEFBA00E6FA96 /* SettingsOptions.swift */; };
@@ -77,6 +80,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB1590EC299A361400ED1687 /* SearchOptionPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionPickerVC.swift; sourceTree = "<group>"; };
+		DB1590EF299A377400ED1687 /* SearchVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchVC + Extensions.swift"; sourceTree = "<group>"; };
+		DB1590F3299A37B600ED1687 /* SearchOptionPickerVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchOptionPickerVC + Extensions.swift"; sourceTree = "<group>"; };
 		DB1640CA298BEEF000E6FA96 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		DB1640CC298BEF4400E6FA96 /* SettingsCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellVM.swift; sourceTree = "<group>"; };
 		DB1640CE298BEFBA00E6FA96 /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
@@ -159,6 +165,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB1590EE299A376300ED1687 /* Search View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DBF80C1C2975AE290099E206 /* SearchVC.swift */,
+				DB1590EF299A377400ED1687 /* SearchVC + Extensions.swift */,
+			);
+			path = "Search View Controller";
+			sourceTree = "<group>";
+		};
+		DB1590F1299A379300ED1687 /* Search View */ = {
+			isa = PBXGroup;
+			children = (
+				DB3B1C7B298E1487006F71F3 /* SearchView.swift */,
+				DB3B1C7F298E16B0006F71F3 /* SearchView + Extensions.swift */,
+			);
+			path = "Search View";
+			sourceTree = "<group>";
+		};
+		DB1590F2299A37A100ED1687 /* Search Option Picker View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB1590EC299A361400ED1687 /* SearchOptionPickerVC.swift */,
+				DB1590F3299A37B600ED1687 /* SearchOptionPickerVC + Extensions.swift */,
+			);
+			path = "Search Option Picker View Controller";
+			sourceTree = "<group>";
+		};
 		DB1640C6298BEE8400E6FA96 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,11 +533,11 @@
 		DBF80C1A2975AE0C0099E206 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DBF80C1C2975AE290099E206 /* SearchVC.swift */,
-				DB3B1C7B298E1487006F71F3 /* SearchView.swift */,
-				DB3B1C7F298E16B0006F71F3 /* SearchView + Extensions.swift */,
+				DB1590EE299A376300ED1687 /* Search View Controller */,
+				DB1590F1299A379300ED1687 /* Search View */,
 				DB3B1C81298E16D9006F71F3 /* NoSearchResultsView.swift */,
 				DB3B1C85298E1728006F71F3 /* SearchInputView.swift */,
+				DB1590F2299A37A100ED1687 /* Search Option Picker View Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,6 +660,7 @@
 				DBA8D28729725462006FF1E1 /* EpisodeDetailVM.swift in Sources */,
 				DBFB046B295C992500E9175C /* APIService.swift in Sources */,
 				DBBC78A72963EEB000A026D9 /* LocationListVM.swift in Sources */,
+				DB1590ED299A361400ED1687 /* SearchOptionPickerVC.swift in Sources */,
 				DBF80C1D2975AE290099E206 /* SearchVC.swift in Sources */,
 				DB4175A3297839ED00992996 /* EpisodeDetailView + Extensions.swift in Sources */,
 				DBBC789F2963EDC600A026D9 /* LocationsResponse.swift in Sources */,
@@ -642,6 +676,7 @@
 				DBB4F7DB29743BE900B56ACE /* EpisodeCollectionViewCellVM.swift in Sources */,
 				DB6C00BE295C93D600129B2D /* Character.swift in Sources */,
 				DBB4F7D72974391200B56ACE /* EpisodeListVM.swift in Sources */,
+				DB1590F0299A377400ED1687 /* SearchVC + Extensions.swift in Sources */,
 				DB832F8029704DBD00F4A8C1 /* EpisodeDetailVC.swift in Sources */,
 				DB3F503A2969BAC0003B30DB /* CharacterDetailEpisodesCollectionViewCell.swift in Sources */,
 				DB440125295D43A400319DF2 /* CharactersResponse.swift in Sources */,
@@ -665,6 +700,7 @@
 				DB6D6E0F298D386A00A54482 /* LocationTableViewCellVM.swift in Sources */,
 				DB6C00A0295C914000129B2D /* SceneDelegate.swift in Sources */,
 				DBFB046D295C994F00E9175C /* APIRequest.swift in Sources */,
+				DB1590F4299A37B600ED1687 /* SearchOptionPickerVC + Extensions.swift in Sources */,
 				DB1640D1298BF29A00E6FA96 /* SettingsView.swift in Sources */,
 				DB3B1C86298E1728006F71F3 /* SearchInputView.swift in Sources */,
 				DB1640CF298BEFBA00E6FA96 /* SettingsOptions.swift in Sources */,

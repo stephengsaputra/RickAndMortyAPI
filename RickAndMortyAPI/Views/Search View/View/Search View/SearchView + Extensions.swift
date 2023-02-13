@@ -25,3 +25,11 @@ extension SearchView: UICollectionViewDelegate, UICollectionViewDataSource {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
+
+extension SearchView: SearchViewDelegate {
+    
+    func searchInputView(_ inputView: SearchInputView, didSelectOption option: SearchInputViewVM.DynamicOption) {
+        
+        delegate?.searchView(self, didSelectOption: option)
+    }
+}

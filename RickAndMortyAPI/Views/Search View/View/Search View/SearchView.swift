@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol SearchViewDelegate: AnyObject {
+    
+    func searchInputView(_ inputView: SearchInputView, didSelectOption option: SearchInputViewVM.DynamicOption)
+}
+
 final class SearchView: UIView {
     
     // MARK: - Properties
@@ -14,6 +19,8 @@ final class SearchView: UIView {
     
     private let noResultsView = NoSearchResultsView()
     private let searchInputView = SearchInputView()
+    
+    weak var delegate: SearchVCDelegate?
  
     // MARK: - Lifecycle
     init(frame: CGRect, viewModel: SearchViewVM) {
@@ -22,6 +29,7 @@ final class SearchView: UIView {
         super.init(frame: .zero)
         
         searchInputView.configure(with: SearchInputViewVM(type: viewModel.config.type))
+        searchInputView.delegate = self
 
         configureUI()
     }
@@ -50,9 +58,11 @@ final class SearchView: UIView {
             searchInputView.topAnchor.constraint(equalTo: self.topAnchor),
             searchInputView.leftAnchor.constraint(equalTo: self.leftAnchor),
             searchInputView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            searchInputView.heightAnchor.constraint(equalToConstant: 110)
+            searchInputView.heightAnchor.constraint(equalToConstant: viewModel.config.type == .episode ? 55 : 110)
         ])
     }
+    
+    func presentKeyboard() {
+        searchInputView.presentKeyboard()
+    }
 }
-
-
