@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// View for top part of search screen with search bar
 final class SearchInputView: UIView {
     
     weak var delegate: SearchViewDelegate?
@@ -16,10 +17,11 @@ final class SearchInputView: UIView {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "Search"
+        searchBar.delegate = self
         return searchBar
     }()
     
-    internal lazy var stackView: UIStackView = {
+    internal lazy var stackView: UIStackView? = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -87,13 +89,13 @@ final class SearchInputView: UIView {
     
     func createOptionSelectionViews(options: [SearchInputViewVM.DynamicOption]) {
         
-        self.addSubview(stackView)
+        self.addSubview(stackView!)
         NSLayoutConstraint.activate([
             
-            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stackView!.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            stackView!.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
+            stackView!.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            stackView!.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
         
         for i in 0..<options.count {
@@ -101,7 +103,7 @@ final class SearchInputView: UIView {
             let option = options[i]
             let button = createButton(with: option, tag: i)
             
-            stackView.addArrangedSubview(button)
+            stackView!.addArrangedSubview(button)
         }
     }
     
@@ -127,5 +129,36 @@ final class SearchInputView: UIView {
         button.tag = tag
         
         return button
+    }
+    
+    public func update(option: SearchInputViewVM.DynamicOption, value: String) {
+        
+        guard let buttons = stackView?.arrangedSubviews as? [UIButton], let allOptions = viewModel?.options, let index = allOptions.firstIndex(of: option) else {
+                return
+            }
+        
+        buttons[index].setAttributedTitle(NSAttributedString(
+            string: value,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 20, weight: .medium),
+                .foregroundColor: UIColor.link
+            ]
+        ), for: .normal)
+    }
+}
+
+extension SearchInputView: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Notify the delegate of changed text
+        delegate?.searchInputView(self, didChangeSearchText: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // Notify that search button was tapped
+        searchBar.resignFirstResponder()
+        delegate?.didTapSearchKeyboard(self)
     }
 }

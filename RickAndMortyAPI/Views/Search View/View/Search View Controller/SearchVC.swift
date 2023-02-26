@@ -25,12 +25,20 @@ class SearchVC: UIViewController {
             
             var title: String {
                 switch self {
-                case .character:
-                    return "Search Characters"
-                case .location:
-                    return "Search Location"
-                case .episode:
-                    return "Search Episode"
+                    case .character:
+                        return "Search Characters"
+                    case .location:
+                        return "Search Location"
+                    case .episode:
+                        return "Search Episode"
+                }
+            }
+            
+            var endpoint: APIEndpoint {
+                switch self {
+                    case .character: return .character
+                    case .location: return .location
+                    case .episode: return .episode
                 }
             }
         }
@@ -38,7 +46,7 @@ class SearchVC: UIViewController {
         let type: `Type`
     }
     
-    private let viewModel: SearchViewVM
+    internal let viewModel: SearchViewVM
     private let searchView: SearchView
     
     // MARK: - Lifecycle
@@ -73,7 +81,7 @@ class SearchVC: UIViewController {
     // MARK: - Selectors
     @objc func didTapSearchButton() {
         
-        print("SEARCH")
+        viewModel.executeSearch()
     }
     
     // MARK: - Helpers

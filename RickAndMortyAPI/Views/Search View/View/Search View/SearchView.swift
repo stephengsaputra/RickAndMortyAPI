@@ -10,12 +10,14 @@ import UIKit
 protocol SearchViewDelegate: AnyObject {
     
     func searchInputView(_ inputView: SearchInputView, didSelectOption option: SearchInputViewVM.DynamicOption)
+    func searchInputView(_ inputView: SearchInputView, didChangeSearchText text: String)
+    func didTapSearchKeyboard(_ inputView: SearchInputView)
 }
 
 final class SearchView: UIView {
     
     // MARK: - Properties
-    private let viewModel: SearchViewVM
+    internal let viewModel: SearchViewVM
     
     private let noResultsView = NoSearchResultsView()
     private let searchInputView = SearchInputView()
@@ -30,6 +32,10 @@ final class SearchView: UIView {
         
         searchInputView.configure(with: SearchInputViewVM(type: viewModel.config.type))
         searchInputView.delegate = self
+        
+        viewModel.registerOptionChangeBlock { tuple in
+            self.searchInputView.update(option: tuple.0, value: tuple.1)
+        }
 
         configureUI()
     }

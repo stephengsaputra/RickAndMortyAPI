@@ -103,7 +103,7 @@ final class LocationDetailVM {
                 .init(title: "Location Name", value: location.name ?? ""),
                 .init(title: "Type", value: location.type ?? ""),
                 .init(title: "Dimension", value: location.dimension ?? ""),
-                .init(title: "Created", value: createdString ?? "")
+                .init(title: "Created", value: createdString)
             ])
         )
         
